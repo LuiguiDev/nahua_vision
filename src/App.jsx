@@ -7,6 +7,7 @@ import { FPV } from './components/FPV'
 import { Model } from './components/Model'
 import { Venus } from './components/Venus'
 import { useState } from 'react'
+import { WebXRController, XRHandSpace } from 'three'
 
 function App () {
   const [hidden, setHidden] = useState(true)
@@ -29,6 +30,11 @@ function App () {
           <Ground />
         </Physics>
       </Canvas>
+      <WebXRController>
+        <mesh visible={false} />
+      </WebXRController>
+      <XRHandSpace hand="left" />
+      <XRHandSpace hand="right" />
     </>
   )
 }
