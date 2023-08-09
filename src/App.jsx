@@ -9,6 +9,7 @@ import { Venus } from './components/Venus'
 import { useRef, useState } from 'react'
 import { Meztli } from './components/Meztli'
 import { Tonatiuh } from './components/Tonatiuh'
+import { Templo } from './components/Templo'
 
 
 function App () {
@@ -62,7 +63,7 @@ function App () {
           <Venus showName={showName} />
           <Meztli />
           <Tonatiuh />
-          <Model url={"./src/3D_models/TemploMayor.stl"} />
+          <Templo />
           <Ground />
         </Physics>
       </Canvas>
