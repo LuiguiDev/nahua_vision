@@ -7,7 +7,12 @@ export function FPV ({ cameraRef, movement }) {
   const { camera, gl } = useThree()
 
   useThree(({camera}) => {
-    camera.rotation.set(-(movement.y), -(movement.x), 0)
+    const x = movement.x
+    const y = movement.y
+
+    const vector = new Vector3(0, 0, 0)
+
+    camera.rotation.set(y, x, 0)
   })
 
   return (

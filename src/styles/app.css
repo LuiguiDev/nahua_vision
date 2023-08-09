@@ -12,3 +12,13 @@
 span {
   font-weight: bold;
 }
+.pointer {
+  position: fixed;
+  top: calc(50% - 10px);
+  left: 50%;
+  transform: translate(50%);
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  z-index: 10;
+}

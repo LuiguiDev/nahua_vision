@@ -7,6 +7,8 @@ import { FPV } from './components/FPV'
 import { Model } from './components/Model'
 import { Venus } from './components/Venus'
 import { useRef, useState } from 'react'
+import { Meztli } from './components/Meztli'
+import { Tonatiuh } from './components/Tonatiuh'
 
 
 function App () {
@@ -30,18 +32,16 @@ function App () {
     const deltaX = newX - touchStart.x
     const deltaY = newY - touchStart.y
 
-    setMovement(
-      {
-        x: deltaX * 0.01,
-        y: deltaY * 0.01
-      }
-    )
+    const newState = structuredClone(movement)
+    newState.x += deltaX * 0.01
+    newState.y += deltaY * 0.01
 
-    //console.log(`X: ${(deltaX * 0.01)} Y:${(deltaY * 0.01)}`)
+    setMovement(newState)
+    setTouchStart({x: newX, y: newY})
   }
 
   function showName() {
-    console.log('showed')
+    console.log('showing')
     setHidden(!hidden)
   }
 
@@ -49,6 +49,7 @@ function App () {
   return(
     <>
       <div className='display' style={{display: hidden ? 'none' : 'inline'}}>Planet name: <span>Xolotl (Venus)</span></div>
+      <div className="pointer">+</div>
       <Canvas
         onTouchStart={(e) => handleTouchStart(e)}
         onTouchMove={(e) => handleTouchMove(e)}
@@ -58,7 +59,9 @@ function App () {
         <directionalLight color={"white"} position={[10, 10, 0]} />
         <FPV cameraRef={cameraRef} movement={movement} />
         <Physics>
-          <Venus  showName={showName} />
+          <Venus showName={showName} />
+          <Meztli />
+          <Tonatiuh />
           <Model url={"./src/3D_models/TemploMayor.stl"} />
           <Ground />
         </Physics>
