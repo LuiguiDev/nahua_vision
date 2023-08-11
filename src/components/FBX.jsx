@@ -12,9 +12,11 @@ export const FBX = ({ modelURL, position, rotation, scale, showName, closeLoader
     setHovered(newState)
   }
 
-  loader.load(`./src/3D_models/${modelURL}`, () => {
-    closeLoader()
-  })
+  useEffect(() => {
+    loader.load(`./src/3D_models/${modelURL}`, () => {
+      closeLoader()
+    })
+  }, [])
 
   return (
     <mesh
