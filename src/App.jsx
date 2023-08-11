@@ -63,7 +63,7 @@ function App () {
       >
         <Sky sunPosition={[1, 0, 0]} />
         <ambientLight intensity={0.2} />
-        <directionalLight color={"white"} position={[60, 0, 50]} />
+        <directionalLight color={"white"} position={[60, -10, 50]} />
         <FPV cameraRef={cameraRef} movement={movement} />
         <Physics>
           {
