@@ -70,7 +70,7 @@ function App () {
             debuggin === false &&
             <>
             <FBX
-              modelURL={'Meztli.fbx'}
+              modelURL={'meztli.fbx'}
               position={[-100, 190, -200]}
               rotation={[Math.PI / 1.3, 0, 0]}
               scale={0.1}
