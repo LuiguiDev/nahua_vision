@@ -10,8 +10,6 @@ export function FPV ({ cameraRef, movement }) {
     const x = movement.x
     const y = movement.y
 
-    const vector = new Vector3(0, 0, 0)
-
     camera.rotation.set(y, x, 0)
   })
 
