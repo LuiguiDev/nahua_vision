@@ -20,7 +20,7 @@ function App () {
 
   const balam =[
     {
-      nameNa: 'Meztli',
+      nameNa: 'Moon',
       nameEs: 'Luna',
       description: 'El glifo de Meztli, nuestra Luna. La U representa el corte frontal de una vasija llena de pulque. El circulo azul marino rodeado de puntos representa la noche estrellada.',
       position: [-100, 190, -200],
