@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useRef, useState } from "react"
 import { useEnvironment, useFBX } from "@react-three/drei";
-import { MeshStandardMaterial } from "three";
+import { DirectionalLight, Group, MeshStandardMaterial } from "three";
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
 
-const FBX = ({ data, closeLoader, setDisplayState }) => {
+const FBX = ({ data, closeLoader, setDisplayState, groupRef }) => {
   const { nameNa, position, rotation, scale, description } = data
   const model = useFBX(`./src/3D_models/${nameNa}.fbx`)
   const envMap = useEnvironment({files: './src/images/Tetl_HDRI.hdr'})
@@ -33,14 +33,17 @@ const FBX = ({ data, closeLoader, setDisplayState }) => {
   }
 
   return (
-    <mesh 
-      scale={scale}
-      position={position}
-      rotation={rotation}
-      onPointerDown={manageModelClick}
-    >
-      <primitive object={model} />
-    </mesh>
+    <Group ref={groupRef}>
+    
+      <mesh 
+        scale={scale}
+        position={position}
+        rotation={rotation}
+        onPointerDown={manageModelClick}
+      >
+        <primitive object={model} />
+      </mesh>
+    </Group>
   )
 }
 

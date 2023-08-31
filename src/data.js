@@ -22,6 +22,30 @@ export const data =[
     position: [-8, 2, 12],
     rotation: [0, 0, 0],
     scale: 1.5
+  },
+  {
+    nameNa: 'Citlalin Popoca',
+    nameEs: 'Cometa',
+    description: '',
+    position: [0, 10, 0],
+    rotation: [0, 0, 0],
+    scale: 1
+  },
+  {
+    nameNa: 'Citlalin Tlamina',
+    nameEs: 'Estrella fugaz',
+    description: '',
+    position: [0, 10, 5],
+    rotation: [0, 0, 0],
+    scale: 1
+  },
+  {
+    nameNa: 'Yohualli',
+    nameEs: 'La noche',
+    description: '',
+    position: [],
+    rotation: [],
+    scale: 1
   }
   /*{
     nameNa: 'Hueyteocalli',
