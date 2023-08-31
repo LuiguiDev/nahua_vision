@@ -9,15 +9,15 @@ const FBX = ({ data, closeLoader, setDisplayState, groupRef }) => {
   const envMap = useEnvironment({files: './src/images/Tetl_HDRI.hdr'})
   const loader = new FBXLoader()
   
-  const manageCloseLoader = useCallback(closeLoader(), [])
-
+  
   function addEnvMap() {
     loader.load(`./src/3D_models/${nameNa}.fbx`, (m) => {
       const materials = m.children[0].material
       materials.envMap = envMap
     })
   }
-
+  
+  const manageCloseLoader = useCallback(closeLoader(), [])
 
 
   useEffect(() => {

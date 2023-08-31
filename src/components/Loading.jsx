@@ -1,6 +1,6 @@
 import '../styles/loader.css'
 
-export const LoaderJSX = () => {
+export const Loading = () => {
   return (
     <div className="loader">
       <div className="spin">

@@ -1,12 +1,12 @@
 import './styles/app.css'
 import { Canvas } from '@react-three/fiber'
-import { Box, Environment, Gltf, Sky, useEnvironment } from '@react-three/drei'
+import { Box, Environment, Gltf, Loader, Sky, useEnvironment } from '@react-three/drei'
 import { Physics } from '@react-three/cannon'
 import { Ground } from './components/Ground'
 import { FPV } from './components/FPV'
 import { useCallback, useRef, useState } from 'react'
 import FBX from './components/FBX'
-import { LoaderJSX } from './components/Loader'
+import {  Loading } from './components/Loading'
 import { Display } from './components/Display'
 import { data } from './data'
 import { HemisphereLight, Scene } from 'three'
@@ -23,7 +23,7 @@ function App () {
   )
   const [touchStart, setTouchStart] = useState({x:0, y:0})
   const [movement, setMovement] = useState({x:0, y:0})
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [debuggin, setDebugging] = useState(true)
   const cameraRef = useRef(null)
 
@@ -65,7 +65,7 @@ function App () {
 
   return(
     <>
-      {loading && <LoaderJSX />}      
+      {loading && <Loading />}   
       <Display options={displayState} setDisplayState={setDisplayState} />
       {loading === false && <div className="pointer">+</div>}
       <Canvas
@@ -81,6 +81,7 @@ function App () {
               {data.map(element => (
                 <GTFL
                   data={element}
+                  closeLoader={closeLoader}
                   key={crypto.randomUUID()}
                 />
               ))}
