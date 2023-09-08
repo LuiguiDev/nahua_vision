@@ -16,6 +16,8 @@ export const GTFL = ({data, closeLoader}) => {
 
 
   useEffect(() => {
+    console.log(model)
+
     if(model){
       manageCloseLoader
     }

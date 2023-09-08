@@ -3,7 +3,7 @@ import { Canvas, useThree } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
 import { Quaternion, Vector3 } from "three";
 
-export function FPV ({ cameraRef, movement }) {
+export function FPV ({ cameraRef, movement, lookAt }) {
   const { camera, gl } = useThree()
 
   useThree(({camera}) => {
@@ -19,6 +19,14 @@ export function FPV ({ cameraRef, movement }) {
     // Actualiza la rotación actual
     currentRotation.copy(camera.quaternion);
   })
+
+  useEffect(
+    () => {
+      const vector = new Vector3(lookAt[0], lookAt[1], lookAt[2])
+      camera.lookAt(vector)
+    },
+    [lookAt]
+  )
 
   return (
     <PointerLockControls args={[camera, gl]} />

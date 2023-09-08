@@ -11,6 +11,7 @@ import { Display } from './components/Display'
 import { data } from './data'
 import { HemisphereLight, Scene } from 'three'
 import { GTFL } from './components/GLFT'
+import { Explore } from './components/Explore'
 
 
 function App () {
@@ -26,6 +27,7 @@ function App () {
   const [loading, setLoading] = useState(true)
   const [debuggin, setDebugging] = useState(true)
   const cameraRef = useRef(null)
+  const [lookAt, setLookAt] = useState([0, 0, 0])
 
   
   function handleTouchStart(e) {
@@ -67,12 +69,17 @@ function App () {
     <>
       {loading && <Loading />}   
       <Display options={displayState} setDisplayState={setDisplayState} />
-      {loading === false && <div className="pointer">+</div>}
+      {loading === false && 
+        <>
+          <Explore />
+          <div className="pointer">+</div>
+        </>
+      }
       <Canvas
         onTouchStart={(e) => handleTouchStart(e)}
         onTouchMove={(e) => handleTouchMove(e)}
       >
-        <FPV cameraRef={cameraRef} movement={movement} />
+        <FPV cameraRef={cameraRef} movement={movement} lookAt={lookAt} />
         <Environment files={'./src/images/Tetl_HDRI.hdr'} background={true}  />
         <Physics>
           {

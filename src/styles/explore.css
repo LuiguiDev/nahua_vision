@@ -1,10 +1,12 @@
 .explore {
   display: grid;
-  grid-template-columns: repeat(3, 200px);
+  grid-template-columns: 150px;
+  grid-auto-flow: column;
   gap: 20px;
   height: 250px;
   width: 90%;
-  overflow-x: scroll;
+  overflow-x: auto;
+  white-space: nowrap;
   background-color: transparent;
   position: fixed;
   bottom: 0;
@@ -19,22 +21,20 @@
   background-color: rgb(19, 18, 18);
   border-radius: 15px;
   height: 200px;
-  width: 100%;
+  width: 160px;
   overflow: hidden;
   padding: 20px;
   gap: 20px;
 }
 
 .card_image {
-  width: 100%;
+  width: calc(150px - 30px);
   height: 100%;
-  background-color: white;
 }
 
 .card_content {
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 
 h3 {
@@ -42,5 +42,5 @@ h3 {
 }
 
 h3 span {
-  color: rgb(198, 198, 198);
+  color: rgb(160, 160, 160);
 }
