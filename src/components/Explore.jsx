@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react"
 import { data } from "../data"
 import '../styles/explore.css'
 
-const ExploreCard = ({ nameNa, nameEs, position, manageLookAt }) => {
+const ExploreCard = ({ nameNa, nameEs, position, manageSetLookAt }) => {
   const url = './src/images/explore_images/${nameNa} labeled.png'
   const styles = {
     backgroundImage: `url('./src/images/explore_images/${nameNa} labeled.png')`,
@@ -10,13 +10,20 @@ const ExploreCard = ({ nameNa, nameEs, position, manageLookAt }) => {
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center'
   } 
+  const cardRef = useRef(null)
 
-  function lookAt () {
-    manageLookAt(position)
+  function manageClick() {
+    manageSetLookAt(position)
   }
 
+  useEffect(() => {
+    if(cardRef) {
+      cardRef.current.addEventListener('click', manageClick)
+    }
+  }, [])
+
   return (
-    <div className="explore_card">
+    <div className="explore_card" ref={cardRef}>
       <div className="card_image" 
       style={styles} ></div>
       <div className="card_content">
@@ -27,8 +34,9 @@ const ExploreCard = ({ nameNa, nameEs, position, manageLookAt }) => {
   )
 }
 
-export const Explore = (manageLookAt) => {
+export const Explore = ({ manageSetLookAt, closeExplorer }) => {
   const exploreRef = useRef(null)
+  const id = crypto.randomUUID()
 
   function manageScroll(e) {
     //exploreRef.current.scrollTo({left: 150})  
@@ -49,17 +57,21 @@ export const Explore = (manageLookAt) => {
  */  }, [])
 
   return (
-    <div className="explore" ref={exploreRef}>
-      {
-        data.map(astro => (
-          <ExploreCard
-            nameNa={astro.nameNa}
-            nameEs={astro.nameEs}
-            position={astro.position}
-            manageLookAt={manageLookAt}
-          />
-        ))
-      }
+    <div className="explore">
+      <div className="explore_list" ref={exploreRef}>
+        {
+          data.map(astro => (
+            <ExploreCard
+              key={astro.id}
+              id={astro.id}
+              nameNa={astro.nameNa}
+              nameEs={astro.nameEs}
+              position={astro.position}
+              manageSetLookAt={manageSetLookAt}
+            />
+          ))
+        }
+      </div>
     </div>
   )
 }

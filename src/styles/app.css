@@ -30,3 +30,15 @@ span {
   font-size: 4rem;
   color: white;
 }
+
+button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  text-shadow: 1px 1px 1px black;
+  position: fixed;
+  bottom: 15px;
+  z-index: 10;
+  left: 50%;
+  transform: translate(-50%);
+}

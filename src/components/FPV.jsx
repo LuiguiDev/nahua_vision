@@ -22,8 +22,10 @@ export function FPV ({ cameraRef, movement, lookAt }) {
 
   useEffect(
     () => {
-      const vector = new Vector3(lookAt[0], lookAt[1], lookAt[2])
-      camera.lookAt(vector)
+      const x = lookAt[0]
+      const y = lookAt[1]
+      const z = lookAt[2]
+      camera.lookAt(x, y, z)
     },
     [lookAt]
   )

@@ -14,10 +14,7 @@ export const GTFL = ({data, closeLoader}) => {
 
   const manageCloseLoader = useCallback(closeLoader(), [])
 
-
   useEffect(() => {
-    console.log(model)
-
     if(model){
       manageCloseLoader
     }

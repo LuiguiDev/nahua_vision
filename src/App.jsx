@@ -4,7 +4,7 @@ import { Box, Environment, Gltf, Loader, Sky, useEnvironment } from '@react-thre
 import { Physics } from '@react-three/cannon'
 import { Ground } from './components/Ground'
 import { FPV } from './components/FPV'
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import FBX from './components/FBX'
 import {  Loading } from './components/Loading'
 import { Display } from './components/Display'
@@ -28,6 +28,7 @@ function App () {
   const [debuggin, setDebugging] = useState(true)
   const cameraRef = useRef(null)
   const [lookAt, setLookAt] = useState([0, 0, 0])
+  const [explorer, setExplorer] = useState(true)
 
   
   function handleTouchStart(e) {
@@ -52,9 +53,15 @@ function App () {
     setMovement(newState)
     setTouchStart({x: newX, y: newY})
   }
-  function showDisplay() {
+  function showDisplay(position) {
     setHidden(!hidden)
   }
+  function manageSetLookAt(position) {
+    setLookAt(position)
+  }
+  function manageCloseExplorer() {
+    setExplorer(!explorer)
+  }  
 
   const closeLoader = useCallback(
     () => {
@@ -62,16 +69,26 @@ function App () {
     }, [loading]
   )
 
-  const envMap = useEnvironment({files: './src/images/Tetl_HDRI.hdr'})
-
-
   return(
     <>
       {loading && <Loading />}   
       <Display options={displayState} setDisplayState={setDisplayState} />
       {loading === false && 
-        <>
-          <Explore />
+        <> 
+        {
+          explorer &&
+          <Explore 
+            manageSetLookAt={manageSetLookAt}
+            closeExplorer={manageCloseExplorer}
+          />
+          
+        }
+          <button 
+            onClick={manageCloseExplorer}
+          >
+            {explorer? 'Close explorer' : 'Show explroer'}
+          </button>
+
           <div className="pointer">+</div>
         </>
       }
