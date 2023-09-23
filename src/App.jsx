@@ -5,13 +5,27 @@ import { Physics } from '@react-three/cannon'
 import { Ground } from './components/Ground'
 import { FPV } from './components/FPV'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import FBX from './components/FBX'
 import {  Loading } from './components/Loading'
 import { Display } from './components/Display'
-import { data } from './data'
 import { HemisphereLight, Scene } from 'three'
 import { GTFL } from './components/GLFT'
-import { Explore } from './components/Explore'
+import { Explorer } from './components/Explorer'
+import { useAstros } from './hooks/useAstros'
+
+
+const ExplorerHanlder = ({manageCloseExplorer, explorer}) => {
+  const className = explorer ? 'top' : 'bottom'
+  const text = explorer ? 'Close explorer' : 'Show explorer'
+
+  return (
+    <button
+      onClick={manageCloseExplorer}
+      className={`explorer_hanlder ${className}`}
+    >
+      {text}
+    </button>
+  )
+}
 
 
 function App () {
@@ -29,7 +43,7 @@ function App () {
   const cameraRef = useRef(null)
   const [lookAt, setLookAt] = useState([0, 0, 0])
   const [explorer, setExplorer] = useState(true)
-
+  const { data } = useAstros()
   
   function handleTouchStart(e) {
     setTouchStart(
@@ -75,20 +89,15 @@ function App () {
       <Display options={displayState} setDisplayState={setDisplayState} />
       {loading === false && 
         <> 
+        <ExplorerHanlder explorer={explorer} manageCloseExplorer={manageCloseExplorer} />
         {
           explorer &&
-          <Explore 
+          <Explorer
             manageSetLookAt={manageSetLookAt}
             closeExplorer={manageCloseExplorer}
           />
           
         }
-          <button 
-            onClick={manageCloseExplorer}
-          >
-            {explorer? 'Close explorer' : 'Show explroer'}
-          </button>
-
           <div className="pointer">+</div>
         </>
       }
