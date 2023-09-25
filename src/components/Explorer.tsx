@@ -1,12 +1,20 @@
 import { useEffect, useRef, useState } from "react"
 import '../styles/explorer.css'
 import { useAstros } from "../hooks/useAstros"
+import { UUIDtype, astro, astros } from "../types"
+import React from "react"
 
-const ExploreCard = ({ nameNa, nameEs, position, manageSetLookAt, setSelectedId, id, description }) => {
+interface CardProps {
+  astro: astro
+  manageSetLookAt: (position: [number, number, number]) => void
+  setSelectedId: (id: UUIDtype | undefined) => void
+}
+
+const ExploreCard: React.FC<CardProps> = ({ astro, manageSetLookAt, setSelectedId }) => {
   const [extended, setExtended] = useState(false)
-  const url = './src/images/explore_images/${nameNa} labeled.png'
+  const { nameNa, nameEs, description, id, position } = astro
   const className = extended ? 'extended' : ''
-  const cardRef = useRef(null)
+  const cardRef = useRef<HTMLDivElement | null>(null)
   const checkDescription = description.length > 0 ? description : 'Missing info about this glyph'
 
   const styles = {
@@ -28,7 +36,7 @@ const ExploreCard = ({ nameNa, nameEs, position, manageSetLookAt, setSelectedId,
   }
 
   useEffect(() => {
-    if(cardRef) {
+    if(cardRef.current) {
       cardRef.current.addEventListener('click', manageClick)
     }
   }, [])
@@ -59,7 +67,7 @@ const ExploreCard = ({ nameNa, nameEs, position, manageSetLookAt, setSelectedId,
               <div
                 style={{whiteSpace: "pre-line"}}
               >
-                {checkDescription}
+                {description || 'there is not a description'}
               </div>
             </>
         </div>
@@ -68,18 +76,24 @@ const ExploreCard = ({ nameNa, nameEs, position, manageSetLookAt, setSelectedId,
   )
 }
 
-export const Explorer = ({ manageSetLookAt, closeExplorer }) => {
+interface ExplorerProps {
+  manageSetLookAt: (position: [number, number, number]) => void
+  closeExplorer: () => void
+}
+
+export const Explorer: React.FC<ExplorerProps> = ({ manageSetLookAt, closeExplorer }) => {
   const exploreRef = useRef(null)
   const id = crypto.randomUUID()
   const { data } = useAstros()
-  const [selectedId, setSelectedId] = useState(undefined)
+  const [selectedId, setSelectedId] = useState<UUIDtype | undefined>(undefined)
 
 
-  function manageScroll(e) {
+  function manageScroll() {
+    //to do: add smooth transition when scrolling the explroer
     //exploreRef.current.scrollTo({left: 150})  
   }
 
-  function astrosFiltered(astros) {
+  function astrosFiltered(astros: astros) {
     if(selectedId) return astros.filter(astro => {
       return astro.id === selectedId
     })
@@ -113,13 +127,9 @@ export const Explorer = ({ manageSetLookAt, closeExplorer }) => {
           astros.map(astro => (
             <ExploreCard
               key={astro.id}
-              id={astro.id}
-              nameNa={astro.nameNa}
-              nameEs={astro.nameEs}
-              position={astro.position}
+              astro={astro}
               manageSetLookAt={manageSetLookAt}
               setSelectedId={setSelectedId}
-              description={astro.description}
             />
           ))
         }

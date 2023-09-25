@@ -1,8 +1,14 @@
 import { useLoader } from "@react-three/fiber"
 import { useCallback, useEffect } from "react"
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
+import { astro } from "../types"
 
-export const GTFL = ({data, closeLoader}) => {
+interface Props {
+  data: astro
+  closeLoader: Function
+}
+
+export const GTFLModel: React.FC<Props> = ({data, closeLoader}) => {
   const {nameNa, position, rotation, scale} = data
   const model = useLoader(GLTFLoader, `./src/3D_models/${nameNa}.gltf`)
 

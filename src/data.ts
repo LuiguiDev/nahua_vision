@@ -1,4 +1,6 @@
-export const data =[
+import { astro } from "./types";
+
+export const data: astro[]  =[
   {
     id: crypto.randomUUID(),
     nameNa: 'Meztli',
