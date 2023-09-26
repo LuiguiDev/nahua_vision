@@ -3,6 +3,14 @@ import '../styles/explorer.css'
 import { useAstros } from "../hooks/useAstros"
 import { UUIDtype, astro, astros } from "../types"
 import React from "react"
+import { Line } from "@react-three/drei"
+import { Mesh } from "three"
+
+const ModelElement = () => {
+  return (
+    <Line points={[2, 2, 2]}/>
+  )
+}
 
 interface CardProps {
   astro: astro

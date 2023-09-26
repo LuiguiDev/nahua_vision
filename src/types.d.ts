@@ -7,7 +7,8 @@ export interface astro {
   description: string
   position: [number, number, number]
   rotation: [number, number, number]
-  scale: number
+  scale: number,
+  elements: {}
 }
 
 export type astros = astro[]

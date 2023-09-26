@@ -1,7 +1,7 @@
 import React from "react"
 import './styles/app.css'
 import { Canvas } from '@react-three/fiber'
-import { Environment } from '@react-three/drei'
+import { Environment, Line, Sphere } from '@react-three/drei'
 import { Physics } from '@react-three/cannon'
 import { FPV } from './components/FPV'
 import { useCallback, useRef, useState } from 'react'
@@ -10,6 +10,8 @@ import { Display } from './components/Display'
 import { GTFLModel } from './components/GLFTModel'
 import { Explorer } from './components/Explorer'
 import { useAstros } from './hooks/useAstros'
+import { MeshBasicMaterial } from "three"
+import { ModelPointer } from "./components/ModelPointer"
 
 interface HandlerProps {
   manageCloseExplorer: () => void
@@ -111,6 +113,8 @@ function App () {
         <FPV cameraRef={cameraRef} movement={movement} lookAt={lookAt} />
         <Environment files={'./src/images/Tetl_HDRI.hdr'} background={true}  />
         <Physics>
+          <ModelPointer start={[0, 10, -30]} end={[0, 20, -20]} />
+          <ModelPointer start={[1, 10, -30]} end={[10, 10, -20]} />
           {
             debuggin &&
             <>
