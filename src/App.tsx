@@ -10,7 +10,6 @@ import { Display } from './components/Display'
 import { GTFLModel } from './components/GLFTModel'
 import { Explorer } from './components/Explorer'
 import { useAstros } from './hooks/useAstros'
-import { MeshBasicMaterial } from "three"
 import { ModelPointer } from "./components/ModelPointer"
 
 interface HandlerProps {
@@ -58,7 +57,6 @@ function App () {
       }
     )
   }
-
   function handleTouchMove(e: React.TouchEvent<HTMLDivElement>) {
     const newX = e.touches[0].clientX
     const newY = e.touches[0].clientY

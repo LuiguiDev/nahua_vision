@@ -2,6 +2,7 @@ type UUIDtype = `${string}-${string}-${string}-${string}-${string}`
 
 export interface astro {
   id: UUIDtype
+  modelName: string
   nameNa: string
   nameEs: string
   description: string

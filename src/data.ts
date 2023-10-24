@@ -3,6 +3,7 @@ import { astro } from "./types";
 export const data: astro[]  =[
   {
     id: crypto.randomUUID(),
+    modelName: 'meztli_blender_v1',
     nameNa: 'Meztli',
     nameEs: 'Luna',
     description: 'El glifo de Meztli, nuestra Luna 🌙\nLa U representa el corte frontal de una vasija llena de pulque. 🏺\nEl circulo azul marino rodeado de puntos representa la noche estrellada. ✨',
@@ -22,6 +23,7 @@ export const data: astro[]  =[
   },
   {
     id: crypto.randomUUID(),
+    modelName: 'tonatiuh_blender_v1',
     nameNa: 'Tonatiuh',
     nameEs: 'Sol',
     description: 
@@ -33,16 +35,18 @@ export const data: astro[]  =[
   },
   {
     id: crypto.randomUUID(),
+    modelName: 'xipe_blender_v1',
     nameNa: 'Xolotl',
     nameEs: 'Venus',
     description: '',
-    position: [-10, 2, 5],
+    position: [-10, 30, 5],
     rotation: [Math.PI / 2, 0, - Math.PI / 2],
     scale: 1.5,
     elements: []
   },
   {
     id: crypto.randomUUID(),
+    modelName: 'citlalin_popoca_blender_v1',
     nameNa: 'Citlalin popoca',
     nameEs: 'Cometa',
     description: '',
@@ -53,6 +57,7 @@ export const data: astro[]  =[
   },
   {
     id: crypto.randomUUID(),
+    modelName: 'citlalin_tlamina_blender_v1',
     nameNa: 'Citlalin tlamina',
     nameEs: 'Estrella fugaz',
     description: '',
@@ -63,6 +68,7 @@ export const data: astro[]  =[
   },
   {
     id: crypto.randomUUID(),
+    modelName: 'yohualli_blender_v1',
     nameNa: 'Yohualli',
     nameEs: 'La noche',
     description: '',
@@ -70,6 +76,28 @@ export const data: astro[]  =[
     rotation: [Math.PI / 2, 0, Math.PI / 2],
     scale: 0.5,
     elements: []
+  },
+  {
+    id: crypto.randomUUID(),
+    modelName: 'tonatiuh_cualo_blender_v1',
+    nameNa: 'Tonatiuh qualo',
+    nameEs: 'Eclipse solar',
+    description: '',
+    position: [-10, 0, 1],
+    rotation: [Math.PI / 2, 0, - Math.PI / 2],
+    scale: 1,
+    elements: {}
+  },
+  {
+    id: crypto.randomUUID(),
+    modelName: 'meztli_cualo_blender_v1',
+    nameNa: 'Meztli cualo',
+    nameEs: 'Eclipse lunar',
+    description: '',
+    position: [-10, 0, 9],
+    rotation: [Math.PI / 2, 0, - Math.PI / 2],
+    scale: 1,
+    elements: {}
   }
   /*{
     id: crypto.randomUUID(),
