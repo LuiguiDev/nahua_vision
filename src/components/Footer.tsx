@@ -18,9 +18,17 @@ export const Footer: React.FC<FooterProps> = ({extended}) => {
           <div className="contact">
             <p>Contact</p>
             <div className="contact_ancors">
-              <a href="http://facebook.com">Fb</a>
-              <a href="http://instagram.com">Insta</a>
-              <a href="mailto:lfrz.arc@gmail.com">Mail</a>
+              <a href="https://www.facebook.com/profile.php?id=100081431242233">
+                <i className="fa-brands fa-facebook" style={{color: "#ffffff"}}></i>
+              </a>
+
+              <a href="https://www.instagram.com/luigui._/">
+                <i className="fa-brands fa-instagram" style={{color: "#ffffff"}}></i>
+              </a>
+              
+              <a href="mailto:lfrz.arc@gmail.com">
+                <i className="fa-solid fa-envelope" style={{color: "#ffffff"}}></i>
+              </a>
             </div>
           </div>
         </div>

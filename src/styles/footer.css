@@ -11,17 +11,19 @@ footer {
   display: flex;
   padding: 20px;
   justify-content: space-between;
+  align-items: center;
 }
 
 .contact {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10px;
 }
 
 .contact_ancors {
   display: flex;
-  gap: 10px;
+  gap: 15px;
 }
 
 .contact_ancors a {
