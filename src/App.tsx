@@ -11,6 +11,8 @@ import { GTFLModel } from './components/GLFTModel'
 import { Explorer } from './components/Explorer'
 import { useAstros } from './hooks/useAstros'
 import { ModelPointer } from "./components/ModelPointer"
+import Presentation from "./components/Presentation"
+import Blog from "./components/Blog"
 
 interface HandlerProps {
   manageCloseExplorer: () => void
@@ -48,6 +50,8 @@ function App () {
   const [lookAt, setLookAt] = useState([0, 0, 0])
   const [explorer, setExplorer] = useState(true)
   const { data } = useAstros()
+  const [waiting, setWaiting] = useState(true)
+  const [blog, setBlog] = useState(false)
   
   function handleTouchStart(e: React.TouchEvent<HTMLDivElement>) {
     setTouchStart(
@@ -85,12 +89,21 @@ function App () {
       setLoading(false)
     }, [loading]
   )
+  
+  function closeWaiting(newState: boolean) {
+    setWaiting(newState)
+  }
+
+  function goToBlog(newState:boolean) {
+    setBlog(newState)
+  }
 
   return(
     <>
-      {loading && <Loading />}
-      
-      {loading === false && 
+      {blog && <Blog blog={blog} goToBlog={goToBlog}/>}
+      {!blog && waiting && <Presentation closeWaiting={closeWaiting} goToBlog={goToBlog} />}
+
+      {waiting === false && 
         <> 
         <ExplorerHanlder explorer={explorer} manageCloseExplorer={manageCloseExplorer} />
         {
@@ -111,8 +124,6 @@ function App () {
         <FPV cameraRef={cameraRef} movement={movement} lookAt={lookAt} />
         <Environment files={'./src/images/Tetl_HDRI.hdr'} background={true}  />
         <Physics>
-          <ModelPointer start={[0, 10, -30]} end={[0, 20, -20]} />
-          <ModelPointer start={[1, 10, -30]} end={[10, 10, -20]} />
           {
             debuggin &&
             <>

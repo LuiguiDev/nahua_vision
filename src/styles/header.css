@@ -1,0 +1,27 @@
+
+/* From header module */
+header {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  background-color: #1d1d1b;
+}
+
+.header_text h2 {
+  font-weight: bold;
+  color: white;
+}
+
+.header_text p {
+  color: #ffffffd5;
+}
+
+i {
+  height: fit-content;
+  font-size: 1.4rem;
+}
+
