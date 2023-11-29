@@ -3,6 +3,7 @@ import '../styles/presentation.css'
 import { useNews } from "../hooks/useNews"
 import { Header } from "./Header"
 import { Footer } from "./Footer"
+import { Link } from "react-router-dom"
 
 const {news} = useNews()
 
@@ -14,7 +15,6 @@ interface newsProps {
     imgAlt: string
   }
   notification: notificationProps
-  goToBlog: (newState: boolean) => void
 }
 
 type notificationProps = {
@@ -54,7 +54,7 @@ function createNotification(notification:notificationProps) {
 }
 
 
-const News: React.FC<newsProps> = ({headline, image, notification, goToBlog}) => {
+const News: React.FC<newsProps> = ({headline, image, notification}) => {
   const {imgSrc, imgAlt} = image
   return(
     <article className="news_container">
@@ -64,11 +64,8 @@ const News: React.FC<newsProps> = ({headline, image, notification, goToBlog}) =>
       </div>
       <img src={imgSrc} alt={imgAlt} />
       <div className="news_buttons">
-        <button 
-          className="news_btn"
-          onClick={() => goToBlog(true)}
-        >
-          Leer artículo
+        <button className="news_btn">
+          <Link to={'./blog'}>Leer artículo</Link>
         </button>
         <button 
           className="news_btn"
@@ -86,36 +83,27 @@ interface PresentationProps {
   goToBlog: (newState: boolean) => void
 }
 
-const Presentation: React.FC<PresentationProps> = ({closeWaiting, goToBlog}) => {
+const Presentation: React.FC<PresentationProps> = ({}) => {
   return (
-    <div className="presentation_container">
-
-      <Header />
-
-      <div className="content">
-        <div className="header_text">
-          {/* <h2>WELCOME TO <br /> NAHUA VISION</h2> */}
-          <p>¿Qué es nahua vision?</p>
-          <p>Una guía para explorar el universo a través de los ojos de los antiguos mexicanos</p>
-        </div>
-
-        <News
-          headline={news[1].headline}
-          image={news[1].image}
-          date={news[1].date}
-          notification={news[1].notification}
-          goToBlog={goToBlog}
-        />
-
-        <button 
-          className="start_btn"
-          onClick={() => closeWaiting(false)}
-        >
-          Go to the app
-        </button>
+    <div className="content">
+      <div className="header_text">
+        {/* <h2>WELCOME TO <br /> NAHUA VISION</h2> */}
+        <p>¿Qué es nahua vision?</p>
+        <p>Una guía para explorar el universo a través de los ojos de los antiguos mexicanos</p>
       </div>
 
-      <Footer extended={false} />
+      <News
+        headline={news[1].headline}
+        image={news[1].image}
+        date={news[1].date}
+        notification={news[1].notification}
+      />
+
+      <button className="start_btn">
+        <Link to={'./app'}>
+          Go to the app
+        </Link>
+      </button>
     </div>
   )
 }

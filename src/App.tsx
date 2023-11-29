@@ -12,7 +12,8 @@ import { Explorer } from './components/Explorer'
 import { useAstros } from './hooks/useAstros'
 import { ModelPointer } from "./components/ModelPointer"
 import Presentation from "./components/Presentation"
-import Blog from "./components/Blog"
+import Blog from "./components/Blog/Articles/MeteorShower"
+import { Route, Routes } from "react-router-dom"
 
 interface HandlerProps {
   manageCloseExplorer: () => void
@@ -99,11 +100,7 @@ function App () {
   }
 
   return(
-    <>
-      {blog && <Blog blog={blog} goToBlog={goToBlog}/>}
-      {!blog && waiting && <Presentation closeWaiting={closeWaiting} goToBlog={goToBlog} />}
-
-      {waiting === false && 
+    <div className="app">
         <> 
         <ExplorerHanlder explorer={explorer} manageCloseExplorer={manageCloseExplorer} />
         {
@@ -116,7 +113,6 @@ function App () {
         }
           <div className="pointer">+</div>
         </>
-      }
       <Canvas
         onTouchStart={(e) => handleTouchStart(e)}
         onTouchMove={(e) => handleTouchMove(e)}
@@ -138,7 +134,7 @@ function App () {
           }
         </Physics>
       </Canvas>
-    </>
+    </div>
   )
 }
 

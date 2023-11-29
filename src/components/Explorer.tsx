@@ -20,13 +20,12 @@ interface CardProps {
 
 const ExploreCard: React.FC<CardProps> = ({ astro, manageSetLookAt, setSelectedId }) => {
   const [extended, setExtended] = useState(false)
-  const { nameNa, nameEs, description, id, position } = astro
+  const { nameNa, nameEs, description, id, position, images } = astro
   const className = extended ? 'extended' : ''
   const cardRef = useRef<HTMLDivElement | null>(null)
   const checkDescription = description.length > 0 ? description : 'Missing info about this glyph'
-
   const styles = {
-    backgroundImage: `url('./src/images/explore_images/${nameNa} labeled.png')`,
+    backgroundImage: `url(${images.thumbnail.src})`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center'
@@ -53,7 +52,9 @@ const ExploreCard: React.FC<CardProps> = ({ astro, manageSetLookAt, setSelectedI
     <div className={`explore_card ${className}`} ref={cardRef}>
       <div className={`basic_info_${className}`}>
         <div className="card_image" 
-        style={styles} ></div>
+        style={styles} >
+          
+        </div>
         <div className="card_content">
           {
             extended &&

@@ -9,7 +9,12 @@ export interface astro {
   position: [number, number, number]
   rotation: [number, number, number]
   scale: number,
-  elements: {}
+  images: {
+    thumbnail: {
+      src: string
+      alt: string
+    }
+  }
 }
 
 export type astros = astro[]

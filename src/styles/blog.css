@@ -1,11 +1,61 @@
+main {
+  margin-top: 75px;
+  display: flex;
+  flex: 1;
+  background-color: #1d1d1b;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+  flex: 1;
+  a {
+    width: 100%;
+  }
+}
+
+.blog_card {
+  display: grid;
+  height: 140px;
+  grid-template-columns: 150px 1fr;
+  gap: 15px;
+  padding: 20px;
+  overflow: hidden;
+  .img_container{
+    width: 100%;
+    .card_img{
+      width: 100%;
+    }
+  }
+  .card_text{
+    .card_text_headline{
+      color: white;
+    }
+    .ct_caption{
+      color: white;
+    }
+  }
+}
+
+article {
+  padding: 0 20px;
+}
+
+article header {
+  position: unset;
+}
+
+.article_main_content {
+  flex: 1;
+  margin: 0;  
+}
+
 .blog_article {
   margin-top: 75px;
-  height: 100vh;
-  overflow-y: scroll;
   background-color: #1d1d1b;
   color: white;
-  margin-bottom: 155px;
-  z-index: 10;
 }
 
 .blog_title {
@@ -16,7 +66,7 @@
   justify-content: center;
 }
 
-.blog_title img {
+.blog_header_img {
   width: 100%;
 }
 
@@ -53,6 +103,15 @@ section {
   gap: 10px;
 }
 
+.image_container {
+  width: 100%;
+  padding: 20px;
+}
+
+.image_container img {
+  width: 100%;
+}
+
 .image_caption {
   border-left: 1px solid white;
   padding-left: 10px;
@@ -66,9 +125,7 @@ blockquote {
   display: flex;
   flex-direction: column;
   gap: 10px;
-
-}
-
-.blog_article footer {
-  margin-bottom: 75px;
+  .quote_footer {
+    margin: 0;
+  }
 }

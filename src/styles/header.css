@@ -11,7 +11,7 @@ header {
   background-color: #1d1d1b;
 }
 
-.header_text h2 {
+header h2 {
   font-weight: bold;
   color: white;
 }
