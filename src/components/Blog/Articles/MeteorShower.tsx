@@ -1,5 +1,6 @@
 import React from "react"
 import '../../../styles/blog.css'
+import { Link } from "react-router-dom"
 
 interface BlogProps {
   blog: boolean
@@ -54,11 +55,8 @@ const MeteorShower: React.FC<BlogProps> = () => {
             </p>
           </section>
         </main>
-
-        <button 
-          className="news_btn"
-        >
-          Regresar al menú principal
+        <button style={{margin: '20px', padding: '5px', borderRadius: '5px'}}>
+          <Link to={'/'}>Regresar al menú principal</Link>
         </button>
       </div>
     </article>
