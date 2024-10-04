@@ -1,3 +1,6 @@
+.app {
+  z-index: 2;
+}
 .display {
   position: fixed;
   top: 20px;

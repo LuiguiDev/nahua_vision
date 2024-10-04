@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Suspense } from "react"
 import './styles/app.css'
 import { Canvas } from '@react-three/fiber'
 import { Environment, Line, Sphere } from '@react-three/drei'
@@ -101,39 +101,40 @@ function App () {
 
   return(
     <div className="app">
-        <> 
-        <ExplorerHanlder explorer={explorer} manageCloseExplorer={manageCloseExplorer} />
-        {
-          explorer &&
-          <Explorer
-            manageSetLookAt={manageSetLookAt}
-            closeExplorer={manageCloseExplorer}
-          />
-          
-        }
-          <div className="pointer">+</div>
-        </>
-      <Canvas
-        onTouchStart={(e) => handleTouchStart(e)}
-        onTouchMove={(e) => handleTouchMove(e)}
-      >
-        <FPV cameraRef={cameraRef} movement={movement} lookAt={lookAt} />
-        <Environment files={'./src/images/Tetl_HDRI.hdr'} background={true}  />
-        <Physics>
+      <Suspense fallback={<Loading/>}>
+
+          <ExplorerHanlder explorer={explorer} manageCloseExplorer={manageCloseExplorer} />
           {
-            debuggin &&
-            <>
-              {data.map(element => (
-                <GTFLModel
-                  data={element}
-                  closeLoader={closeLoader}
-                  key={crypto.randomUUID()}
-                />
-              ))}
-            </>
+            explorer &&
+            <Explorer
+              manageSetLookAt={manageSetLookAt}
+              closeExplorer={manageCloseExplorer}
+            />
+            
           }
-        </Physics>
-      </Canvas>
+            <div className="pointer">+</div>
+        <Canvas
+          onTouchStart={(e) => handleTouchStart(e)}
+          onTouchMove={(e) => handleTouchMove(e)}
+        >
+          <FPV cameraRef={cameraRef} movement={movement} lookAt={lookAt} />
+          <Environment files={'./src/images/Tetl_HDRI.hdr'} background={true}  />
+          <Physics>
+            {
+              debuggin &&
+              <>
+                {data.map(element => (
+                  <GTFLModel
+                    data={element}
+                    closeLoader={closeLoader}
+                    key={crypto.randomUUID()}
+                  />
+                ))}
+              </>
+            }
+          </Physics>
+        </Canvas>
+      </Suspense>
     </div>
   )
 }
