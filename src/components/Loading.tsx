@@ -5,7 +5,7 @@ export const Loading = () => {
     <div className="loader">
       <div className="spin">
       </div>
-      <img className="eye" src='./src/images/loader_eye.png'/>
+      <img className="eye" src='https://i.ibb.co/PNXgfGW/loader-eye.webp'/>
     </div>
   )
 }
