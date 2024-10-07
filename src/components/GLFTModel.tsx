@@ -11,7 +11,7 @@ interface Props {
 
 export const GTFLModel: React.FC<Props> = ({data, closeLoader}) => {
   const {nameNa, position, rotation, scale, modelName} = data
-  const model = useLoader(GLTFLoader, `./src/3D_models/${modelName}.gltf`)
+  const model = useLoader(GLTFLoader, `../.././3D_models/${modelName}.gltf`)
 
   const spotLightPositions = {
     Meztli: [40, 10, -5],
