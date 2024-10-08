@@ -13,13 +13,13 @@ function Router () {
   return(
     <div className="global">
       <Header />
-      <Routes>
-        <Route path="/app" element={<App />} />
-        <Route path="/" element={<Presentation />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/eclipse-solar" element={<EclipseSolar />}/>
-        <Route path="/blog/lluvia-de-estrellas" element={<MeteorShower />} />
-      </Routes>
+        <Routes>
+          <Route path="/app" element={<App />} />
+          <Route path="/" element={<Presentation />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/eclipse-solar" element={<EclipseSolar />}/>
+          <Route path="/blog/lluvia-de-estrellas" element={<MeteorShower />} />
+        </Routes>
       <Footer extended={false}/>
     </div>
   )

@@ -118,7 +118,11 @@ function App () {
           onTouchMove={(e) => handleTouchMove(e)}
         >
           <FPV cameraRef={cameraRef} movement={movement} lookAt={lookAt} />
-          <Environment files={'./src/images/Tetl_HDRI.hdr'} background={true}  />
+          <Environment 
+            files={'../public/img/tetl 2k.hdr'}
+            background={true}
+            blur={0.02}
+          />
           <Physics>
             {
               debuggin &&
