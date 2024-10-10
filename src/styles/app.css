@@ -34,17 +34,6 @@ span {
   color: white;
 }
 
-.explorer_hanlder {
-  background-color: transparent;
-  color: white;
-  border: none;
-  text-shadow: 1px 1px 1px black;
-  position: fixed;
-  bottom: 240px;
-  z-index: 10;
-  left: 50%;
-  transform: translate(-50%);
-}
 
 .bottom {
   bottom: 45px;

@@ -6,19 +6,42 @@ import React from "react"
 import { Line } from "@react-three/drei"
 import { Mesh } from "three"
 
+// EXPERIMENTS
 const ModelElement = () => {
   return (
     <Line points={[2, 2, 2]}/>
   )
 }
 
+// TYPES
+interface HandlerProps {
+  manageCloseExplorer: () => void
+  explorer: boolean
+}
 interface CardProps {
   astro: astro
   manageSetLookAt: (position: [number, number, number]) => void
   setSelectedId: (id: UUIDtype | undefined) => void
 }
 
+
+// COMPONENTS
+const ExplorerHanlder: React.FC<HandlerProps> = ({manageCloseExplorer, explorer}) => {
+  const className = explorer ? 'top' : 'bottom'
+  const text = explorer ? 'Close explorer' : 'Show explorer'
+
+  return (
+    <button
+      onClick={manageCloseExplorer}
+      className={`explorer_hanlder ${className}`}
+    >
+      {text}
+    </button>
+  )
+}
+
 const ExploreCard: React.FC<CardProps> = ({ astro, manageSetLookAt, setSelectedId }) => {
+  // STATES
   const [extended, setExtended] = useState(false)
   const { nameNa, nameEs, description, id, position, images } = astro
   const className = extended ? 'extended' : ''
@@ -31,17 +54,16 @@ const ExploreCard: React.FC<CardProps> = ({ astro, manageSetLookAt, setSelectedI
     backgroundPosition: 'center'
   } 
 
+  // FUNCTIONS
   function manageClick() {
     manageSetLookAt(position)
     setExtended(!extended)
     setSelectedId(id)
   }
-
   function backToExplorer() {
     setSelectedId(undefined)
     setExtended(false)
   }
-
   useEffect(() => {
     if(cardRef.current) {
       cardRef.current.addEventListener('click', manageClick)
@@ -87,21 +109,23 @@ const ExploreCard: React.FC<CardProps> = ({ astro, manageSetLookAt, setSelectedI
 
 interface ExplorerProps {
   manageSetLookAt: (position: [number, number, number]) => void
-  closeExplorer: () => void
 }
 
-export const Explorer: React.FC<ExplorerProps> = ({ manageSetLookAt, closeExplorer }) => {
+// MAIN COMPONENT
+export const Explorer: React.FC<ExplorerProps> = ({ manageSetLookAt }) => {
+  // STATES
+  const [explorer, setExplorer] = useState(true)
   const exploreRef = useRef(null)
   const id = crypto.randomUUID()
   const { data } = useAstros()
   const [selectedId, setSelectedId] = useState<UUIDtype | undefined>(undefined)
 
 
+  // FUNCITONS
   function manageScroll() {
     //to do: add smooth transition when scrolling the explroer
     //exploreRef.current.scrollTo({left: 150})  
   }
-
   function astrosFiltered(astros: astros) {
     if(selectedId) return astros.filter(astro => {
       return astro.id === selectedId
@@ -109,6 +133,9 @@ export const Explorer: React.FC<ExplorerProps> = ({ manageSetLookAt, closeExplor
 
     return astros
   }
+  function manageCloseExplorer() {
+    setExplorer(!explorer)
+  }  
 
   const astros = astrosFiltered(data)
 
@@ -131,18 +158,22 @@ export const Explorer: React.FC<ExplorerProps> = ({ manageSetLookAt, closeExplor
 
   return (
     <div className="explore">
-      <div className={className} ref={exploreRef}>
-        {
-          astros.map(astro => (
-            <ExploreCard
-              key={astro.id}
-              astro={astro}
-              manageSetLookAt={manageSetLookAt}
-              setSelectedId={setSelectedId}
-            />
-          ))
-        }
-      </div>
+      <ExplorerHanlder explorer={explorer} manageCloseExplorer={manageCloseExplorer} />
+      {
+        explorer && 
+        <div className={className} ref={exploreRef}>
+          {
+            astros.map(astro => (
+              <ExploreCard
+                key={astro.id}
+                astro={astro}
+                manageSetLookAt={manageSetLookAt}
+                setSelectedId={setSelectedId}
+              />
+            ))
+          }
+        </div>
+      }
     </div>
   )
 }

@@ -15,26 +15,6 @@ import Presentation from "./components/Presentation"
 import Blog from "./components/Blog/Articles/MeteorShower"
 import { Route, Routes } from "react-router-dom"
 
-interface HandlerProps {
-  manageCloseExplorer: () => void
-  explorer: boolean
-}
-
-const ExplorerHanlder: React.FC<HandlerProps> = ({manageCloseExplorer, explorer}) => {
-  const className = explorer ? 'top' : 'bottom'
-  const text = explorer ? 'Close explorer' : 'Show explorer'
-
-  return (
-    <button
-      onClick={manageCloseExplorer}
-      className={`explorer_hanlder ${className}`}
-    >
-      {text}
-    </button>
-  )
-}
-
-
 function App () {
   const [displayState, setDisplayState] = useState(
     {
@@ -49,7 +29,6 @@ function App () {
   const [debuggin, setDebugging] = useState(true)
   const cameraRef = useRef(null)
   const [lookAt, setLookAt] = useState([0, 0, 0])
-  const [explorer, setExplorer] = useState(true)
   const { data } = useAstros()
   const [waiting, setWaiting] = useState(true)
   const [blog, setBlog] = useState(false)
@@ -81,9 +60,6 @@ function App () {
     setLookAt(position)
   }
 
-  function manageCloseExplorer() {
-    setExplorer(!explorer)
-  }  
 
   const closeLoader = useCallback(
     () => {
@@ -102,17 +78,8 @@ function App () {
   return(
     <div className="app">
       <Suspense fallback={<Loading/>}>
-
-          <ExplorerHanlder explorer={explorer} manageCloseExplorer={manageCloseExplorer} />
-          {
-            explorer &&
-            <Explorer
-              manageSetLookAt={manageSetLookAt}
-              closeExplorer={manageCloseExplorer}
-            />
-            
-          }
-            <div className="pointer">+</div>
+          <div className="pointer">+</div>
+          <Explorer manageSetLookAt={manageSetLookAt} />
         <Canvas
           onTouchStart={(e) => handleTouchStart(e)}
           onTouchMove={(e) => handleTouchMove(e)}

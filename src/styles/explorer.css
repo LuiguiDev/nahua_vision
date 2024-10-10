@@ -11,6 +11,13 @@
   gap: 15px;
 }
 
+.explorer_hanlder {
+  background-color: transparent;
+  color: white;
+  border: none;
+  text-shadow: 1px 1px 1px black;
+}
+
 .explore_list {
   display: grid;
   grid-template-columns: 150px;

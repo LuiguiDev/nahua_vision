@@ -111,13 +111,13 @@ export const data = [
     modelName: 'meztli_cualo_blender_v1',
     nameNa: 'Meztli cualo',
     nameEs: 'Eclipse lunar',
-    description: '',
+    description: 'Este glifo está compuesto por dos pictogramas: Yohualli "la noche" (parte izq.) y Meztli "la luna" (parte derecha) pues la traducción interpretada de "Meztli cualo" es "La oscuridad devoró a la luna".',
     position: [-10, 0, 9],
     rotation: [Math.PI / 2, 0, - Math.PI / 2],
     scale: 1,
     images: {
         thumbnail: {
-        src: ''
+        src: 'https://i.ibb.co/p4638ST/meztli-cualo-iluminated.webp'
       }
     }
   }
