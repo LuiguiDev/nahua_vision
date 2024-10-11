@@ -3,6 +3,7 @@ import { useLoader } from "@react-three/fiber"
 import { useCallback, useEffect } from "react"
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
 import { astro } from "../types"
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader"
 
 interface Props {
   data: astro
@@ -11,7 +12,15 @@ interface Props {
 
 export const GTFLModel: React.FC<Props> = ({data, closeLoader}) => {
   const {nameNa, position, rotation, scale, modelName} = data
-  const model = useLoader(GLTFLoader, `../.././3D_models/${modelName}.gltf`)
+
+  if(modelName.length === 0) return
+
+  const model = useLoader(GLTFLoader, `../../3D_models/${modelName}.gltf`, (loader) => {
+    const dracoLoader = new DRACOLoader()
+
+    dracoLoader.setDecoderPath('/draco-gltf/')
+    loader.setDRACOLoader(dracoLoader)
+  })
 
   const spotLightPositions = {
     Meztli: [40, 10, -5],

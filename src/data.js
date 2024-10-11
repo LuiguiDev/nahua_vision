@@ -1,7 +1,7 @@
 export const data = [
   {
     id: crypto.randomUUID(),
-    modelName: 'meztli_blender_v1',
+    modelName: 'meztli_3d',
     nameNa: 'Meztli',
     nameEs: 'Luna',
     description: 'El glifo de Meztli, nuestra Luna 🌙\nLa U representa el corte frontal de una vasija llena de pulque. 🏺\nEl circulo azul marino rodeado de puntos representa la noche estrellada. ✨',
@@ -17,7 +17,7 @@ export const data = [
   },
   {
     id: crypto.randomUUID(),
-    modelName: 'tonatiuh_blender_v1',
+    modelName: 'tonatiuh_3d',
     nameNa: 'Tonatiuh',
     nameEs: 'Sol',
     description: 
@@ -33,7 +33,7 @@ export const data = [
   },
   {
     id: crypto.randomUUID(),
-    modelName: 'xipe_blender_v1',
+    modelName: '',
     nameNa: 'Xolotl',
     nameEs: 'Venus',
     description: 'Las representaciones iconográficas de Venus son diversas; incluso, en el Templo Rojo de Cacaxtla se representó de forma humanizada, y en la lámina 58 del Códice Dresde la cabeza de la deidad descendente se plasmó por medio de una cruz o estrella.\n Si deseas saber más sobre la compleja iconografía de Venus te invito a leer el siguiente artículo: Representaciones de venus en el méxico prehispanico',
@@ -48,7 +48,7 @@ export const data = [
   },
   {
     id: crypto.randomUUID(),
-    modelName: 'citlalin_popoca_blender_v1',
+    modelName: '',
     nameNa: 'Citlalin popoca',
     nameEs: 'Cometa',
     description: 'Citlalin popoca significa literalmente "estrella que humea", aquí está representa con el glifo de citlali que en conjugación con unas bolutas de humo alude a la idea de un cometa',
@@ -63,7 +63,7 @@ export const data = [
   },
   {
     id: crypto.randomUUID(),
-    modelName: 'citlalin_tlamina_blender_v1',
+    modelName: '',
     nameNa: 'Citlalin tlamina',
     nameEs: 'Citlalin tlamina significa literalmente "estrella fugaz", aquí se representa con el glifo de citlali que en conjugación del glifo tlamina "flecha" alude a la idea de una estrella fugaz',
     description: '',
@@ -78,7 +78,7 @@ export const data = [
   },
   {
     id: crypto.randomUUID(),
-    modelName: 'yohualli_blender_v1',
+    modelName: '',
     nameNa: 'Yohualli',
     nameEs: 'La noche',
     description: '',
@@ -93,7 +93,7 @@ export const data = [
   },
   {
     id: crypto.randomUUID(),
-    modelName: 'tonatiuh_cualo_blender_v1',
+    modelName: 'tonatiuh_cualo_3d',
     nameNa: 'Tonatiuh qualo',
     nameEs: 'Eclipse solar',
     description: '',
@@ -108,7 +108,7 @@ export const data = [
   },
   {
     id: crypto.randomUUID(),
-    modelName: 'meztli_cualo_blender_v1',
+    modelName: '',
     nameNa: 'Meztli cualo',
     nameEs: 'Eclipse lunar',
     description: 'Este glifo está compuesto por dos pictogramas: Yohualli "la noche" (parte izq.) y Meztli "la luna" (parte derecha) pues la traducción interpretada de "Meztli cualo" es "La oscuridad devoró a la luna".',
