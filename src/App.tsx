@@ -86,7 +86,7 @@ function App () {
         >
           <FPV cameraRef={cameraRef} movement={movement} lookAt={lookAt} />
           <Environment 
-            files={'../public/img/tetl 2k.hdr'}
+            files={'.././img/tetl 2k.hdr'}
             background={true}
             blur={0.02}
           />
