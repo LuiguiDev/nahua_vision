@@ -7,6 +7,7 @@ import App from "./App"
 import Blog from "./components/Blog/Blog"
 import { Header } from "./components/Header"
 import { Footer } from "./components/Footer"
+import AztecAstronomyQuiz from "./components/AztecAstronomyQuiz"
 
 
 function Router () {
@@ -14,6 +15,7 @@ function Router () {
     <div className="global">
       <Header />
         <Routes>
+          <Route path="/quizz" element={<AztecAstronomyQuiz />} />
           <Route path="/app" element={<App />} />
           <Route path="/" element={<Presentation />} />
           <Route path="/blog" element={<Blog />} />
