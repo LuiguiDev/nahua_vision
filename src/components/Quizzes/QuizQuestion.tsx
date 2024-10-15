@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import './question.css'
+import { useQuiz } from '../../hooks/useQuiz';
 
+// TYPES
 interface Option {
   id: string;
   text: string;
 }
-
 interface QuizQuestionProps {
   question: string;
   options: Option[];
@@ -12,42 +14,44 @@ interface QuizQuestionProps {
   onAnswerSubmit: (isCorrect: boolean) => void;
 }
 
-const QuizQuestion: React.FC<QuizQuestionProps> = ({
+// MAIN COMPONENT
+const QuizQuestion: React.FC<QuizQuestionProps> = ({ 
   question,
   options = [], // Provide a default empty array
   correctAnswer,
   onAnswerSubmit
 }) => {
+
+  // Add a check to render nothing if there's no question or options
+  if (!question || options.length === 0) return null;
+  
+  // STATES
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isAnswerSubmitted, setIsAnswerSubmitted] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
 
-  const handleOptionSelect = (optionId: string) => {
+  // FUNCTIONS
+  function handleOptionSelect (optionId: string) {
     if (!isAnswerSubmitted) {
       setSelectedAnswer(optionId);
     }
-  };
-
-  const handleSubmit = () => {
+  }
+  function handleSubmit () {
     if (selectedAnswer) {
       const correct = selectedAnswer === correctAnswer;
       setIsCorrect(correct);
       setIsAnswerSubmitted(true);
       onAnswerSubmit(correct);
     }
-  };
-
-  // Add a check to render nothing if there's no question or options
-  if (!question || options.length === 0) {
-    return null;
   }
 
   return (
     <div className="space-y-4">
+      <img src="https://i.ibb.co/zhtK0WZ/Tonatiuh-labeled.webp" alt="" className='question_img' />
       <h3 className="text-lg font-semibold">{question}</h3>
       <div className="space-y-2">
         {options.map((option) => (
-          <button
+         <button
             key={option.id}
             onClick={() => handleOptionSelect(option.id)}
             className={`w-full text-left p-2 rounded ${
