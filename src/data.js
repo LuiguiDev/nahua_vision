@@ -96,7 +96,7 @@ export const data = [
     modelName: 'tonatiuh_cualo_3d',
     nameNa: 'Tonatiuh qualo',
     nameEs: 'Eclipse solar',
-    description: '',
+    description: '🇪🇸 Eclipse solar \n 🇲🇽 Tonatiuh cualo \nEste es un modelo 3D modelé tomando como referencia un glifo del códice borbónico que representa un eclipse solar. \nLa expresión tonatiuh cualo se traduce como "la oscuridad devoró al sol".',
     position: [-10, 0, 1],
     rotation: [Math.PI / 2, 0, - Math.PI / 2],
     scale: 1,
