@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import QuizQuestion from './Quizzes/QuizQuestion';
 import { useQuiz } from '../hooks/useQuiz';
+import { Navigate, Route, Router, Routes, useNavigate, useParams } from 'react-router-dom';
+import '../styles/quiz.css'
 
 interface Option {
   id: string;
@@ -17,46 +19,87 @@ interface QuizDataType {
 
 
 const AztecAstronomyQuiz = () => {
-  const handleAnswerSubmit = (isCorrect: boolean) => {
-    // Lógica para manejar la respuesta (por ejemplo, actualizar la puntuación)
-  };
+  const navigate = useNavigate()
+  const [questionIndex, setQuestionIndex] = useState(-1)
+  const [userAnswers, setUserAnswers] = useState({})
+  const [quizCompleted, setQuizCompleted] = useState(false)
 
   const {quiz_data} = useQuiz()
 
-  return (
-    <div style={{backgroundColor: 'black'}}>
-      <h2>Quiz de Astronomía Azteca</h2>
+  
+  function renderSummary() {
+    const correctAnswers = Object.values(userAnswers).filter(answer => answer === 'correct').length
+    const maxScore =quiz_data.length
+    const score = correctAnswers/maxScore
+    
+    function getSummaryMessage(score:number) {
+      if(score === maxScore) return 'Felicidades, obtuviste un resultado perfecto'
+      
+      return 'Hay cosas que no sabes, pero puedes aprenderlas!'
+    }
 
-      {quiz_data.map(element => (
+    return (
+      <div className="quiz_sumary">
+        <h3>{correctAnswers}/{maxScore}</h3>
+        <p>{getSummaryMessage(score)}</p>
+        <button onClick={navigate('/app')}>Quiero aprender más</button>
+      </div>
+    )
+  }
+  function handleStartQuiz() {
+    setQuestionIndex(0)
+  }
+  const handleAnswerSubmit = (isCorrect:boolean) => {
+    const currentQuestion = quiz_data[questionIndex];
+
+
+    setUserAnswers(prev => ({
+      ...prev,
+      [questionIndex]: isCorrect ? 'correct' : 'incorrect'
+    }));
+
+    if (questionIndex < quiz_data.length - 1) {
+      setQuestionIndex(prev => prev + 1);
+    } else {
+      setQuizCompleted(true);
+    }
+  };
+  function renderQuestion() {
+    const currentCuestion = quiz_data[questionIndex]
+
+    return(
+      <div className="quiz_question">
+        <p>Pregutna {questionIndex + 1} de {quiz_data.length}</p>
         <QuizQuestion
-          question={element.question}
-          options={element.options}
-          correctAnswer={element.answer}
+          question={currentCuestion.question}
+          options={currentCuestion.options}
+          correctAnswer={currentCuestion.answer}
           onAnswerSubmit={handleAnswerSubmit}
-        />    
-      ))}
-      <QuizQuestion
-        question="¿Qué representa el círculo rojo en el centro del pictograma de Tonatiuh?"
-        options={[
-          { id: 'a', text: 'El fuego' },
-          { id: 'b', text: 'El sol' },
-          { id: 'c', text: 'La sangre' },
-          { id: 'd', text: 'El corazón' }
-        ]}
-        correctAnswer="b"
-        onAnswerSubmit={handleAnswerSubmit}
-      />
-      <QuizQuestion
-        question='working?'
-        options={[
-          { id: 'a', text: 'El fuego' },
-          { id: 'b', text: 'El sol' },
-          { id: 'c', text: 'La sangre' },
-          { id: 'd', text: 'El corazón' }
-        ]}
-        correctAnswer='b'
-        onAnswerSubmit={handleAnswerSubmit}
-      />
+        />
+      </div>
+    )
+  }
+
+  function renderQuizContent() {
+    if(questionIndex === -1) {
+      return(
+        <div>
+          {/* presentation image */}
+          <h3>Bienvenido al qui de astronomía azteca</h3>
+          <button onClick={handleStartQuiz}>Comenzar quiz</button>
+        </div>
+      )
+    }else if(quizCompleted){
+      return renderSummary()
+    }else{
+      return renderQuestion()
+    }
+  }
+
+  return (
+    <div className="quiz_container">
+      <h1>Quiz de astronomía azteca</h1>
+      {renderQuizContent()}
     </div>
   );
 };

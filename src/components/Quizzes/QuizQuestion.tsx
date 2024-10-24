@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './question.css'
 import { useQuiz } from '../../hooks/useQuiz';
+import '../../styles/quiz.css'
 
 // TYPES
 interface Option {
@@ -47,7 +48,9 @@ const QuizQuestion: React.FC<QuizQuestionProps> = ({
 
   return (
     <div className="space-y-4">
-      <img src="https://i.ibb.co/zhtK0WZ/Tonatiuh-labeled.webp" alt="" className='question_img' />
+      <div className="question_img_container">
+        <img src="https://i.ibb.co/zhtK0WZ/Tonatiuh-labeled.webp" alt="" className='question_img' />
+      </div>
       <h3 className="text-lg font-semibold">{question}</h3>
       <div className="space-y-2">
         {options.map((option) => (

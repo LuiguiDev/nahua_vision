@@ -1,3 +1,6 @@
+.global {
+  background-color: #1d1d1b;
+}
 .app {
   z-index: 2;
 }
