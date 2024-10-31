@@ -89,7 +89,7 @@
       }
     ],
     "answer": "d",
-    "img": ""
+    "img": "https://i.ibb.co/BK3bfPR/xolotl-venus.png"
   },
   {
     "question": "¿Qué imagen se usaba para representar a un astronomo?",

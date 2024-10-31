@@ -13,6 +13,7 @@ interface QuizQuestionProps {
   options: Option[];
   correctAnswer: string;
   onAnswerSubmit: (isCorrect: boolean) => void;
+  onNextQuestion: () => void;
 }
 
 // MAIN COMPONENT
@@ -20,7 +21,8 @@ const QuizQuestion: React.FC<QuizQuestionProps> = ({
   question,
   options = [], // Provide a default empty array
   correctAnswer,
-  onAnswerSubmit
+  onAnswerSubmit,
+  onNextQuestion
 }) => {
 
   // Add a check to render nothing if there's no question or options
@@ -86,11 +88,17 @@ const QuizQuestion: React.FC<QuizQuestionProps> = ({
         </button>
       )}
       {isAnswerSubmitted && (
-        isCorrect
-          ? <h2>Correcro</h2>
-          : <h2>Incorreco, la respuesta correcta es: 
-            {options.find((o) => o.id === correctAnswer)?.text}</h2>
-      )}
+        <div className="answer_submitted_feedback">
+          {
+          isCorrect
+            ? <h3 style={{color: 'green'}}>Correcro</h3>
+            : <h3><span style={{color: 'red'}}>Incorreco</span>, 
+              la respuesta correcta es: {options.find((o) => o.id === correctAnswer)?.text}</h3>
+          }
+          <button onClick={onNextQuestion}>Next quesiton</button>
+        </div>
+        )
+      }
     </div>
   );
 };

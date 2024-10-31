@@ -49,21 +49,23 @@ const AztecAstronomyQuiz = () => {
   function handleStartQuiz() {
     setQuestionIndex(0)
   }
-  const handleAnswerSubmit = (isCorrect:boolean) => {
+  const handleNextQuestion = () => {
     const currentQuestion = quiz_data[questionIndex];
-
-
-    setUserAnswers(prev => ({
-      ...prev,
-      [questionIndex]: isCorrect ? 'correct' : 'incorrect'
-    }));
 
     if (questionIndex < quiz_data.length - 1) {
       setQuestionIndex(prev => prev + 1);
     } else {
       setQuizCompleted(true);
     }
-  };
+  }
+
+  function handleAnswerSubmit(isCorrect: boolean) {
+    setUserAnswers(prev => ({
+      ...prev,
+      [questionIndex]: isCorrect ? 'correct' : 'incorrect'
+    }));
+  }
+
   function renderQuestion() {
     const currentCuestion = quiz_data[questionIndex]
 
@@ -75,6 +77,7 @@ const AztecAstronomyQuiz = () => {
           options={currentCuestion.options}
           correctAnswer={currentCuestion.answer}
           onAnswerSubmit={handleAnswerSubmit}
+          onNextQuestion={handleNextQuestion}
         />
       </div>
     )
@@ -97,7 +100,7 @@ const AztecAstronomyQuiz = () => {
   }
 
   return (
-    <div className="quiz_container">
+    <div className="quiz_container" style={{marginBottom: '50px'}}>
       <h1>Quiz de astronomía azteca</h1>
       {renderQuizContent()}
     </div>
