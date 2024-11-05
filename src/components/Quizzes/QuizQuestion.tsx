@@ -9,9 +9,11 @@ interface Option {
   text: string;
 }
 interface QuizQuestionProps {
+  image_question: string;
   question: string;
   options: Option[];
   correctAnswer: string;
+  isAnswerSubmitted: boolean;
   onAnswerSubmit: (isCorrect: boolean) => void;
   onNextQuestion: () => void;
 }
@@ -21,8 +23,10 @@ const QuizQuestion: React.FC<QuizQuestionProps> = ({
   question,
   options = [], // Provide a default empty array
   correctAnswer,
+  image_question,
+  isAnswerSubmitted,
   onAnswerSubmit,
-  onNextQuestion
+  onNextQuestion,
 }) => {
 
   // Add a check to render nothing if there's no question or options
@@ -30,7 +34,6 @@ const QuizQuestion: React.FC<QuizQuestionProps> = ({
   
   // STATES
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
-  const [isAnswerSubmitted, setIsAnswerSubmitted] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
 
   // FUNCTIONS
@@ -43,15 +46,15 @@ const QuizQuestion: React.FC<QuizQuestionProps> = ({
     if (selectedAnswer) {
       const correct = selectedAnswer === correctAnswer;
       setIsCorrect(correct);
-      setIsAnswerSubmitted(true);
       onAnswerSubmit(correct);
+      setSelectedAnswer(null)
     }
   }
 
   return (
     <div className="space-y-4">
       <div className="question_img_container">
-        <img src="https://i.ibb.co/zhtK0WZ/Tonatiuh-labeled.webp" alt="" className='question_img' />
+        <img src={image_question} alt="" className='question_img' />
       </div>
       <h3 className="text-lg font-semibold">{question}</h3>
       <div className="space-y-2">
@@ -84,7 +87,7 @@ const QuizQuestion: React.FC<QuizQuestionProps> = ({
           className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-gray-300"
           disabled={!selectedAnswer}
         >
-          Submit Answer
+          Enviar respuesta
         </button>
       )}
       {isAnswerSubmitted && (
@@ -95,7 +98,7 @@ const QuizQuestion: React.FC<QuizQuestionProps> = ({
             : <h3><span style={{color: 'red'}}>Incorreco</span>, 
               la respuesta correcta es: {options.find((o) => o.id === correctAnswer)?.text}</h3>
           }
-          <button onClick={onNextQuestion}>Next quesiton</button>
+          <button onClick={onNextQuestion}>Siguiente pregunta</button>
         </div>
         )
       }

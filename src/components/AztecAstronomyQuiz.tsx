@@ -12,6 +12,7 @@ interface QuizQuestionProps {
   question: string;
   options: Option[];
   correctAnswer: string;
+  img: string;
 }
 interface QuizDataType {
   quiz_data: QuizQuestionProps[]
@@ -19,14 +20,18 @@ interface QuizDataType {
 
 
 const AztecAstronomyQuiz = () => {
+  // STATES
   const navigate = useNavigate()
   const [questionIndex, setQuestionIndex] = useState(-1)
   const [userAnswers, setUserAnswers] = useState({})
   const [quizCompleted, setQuizCompleted] = useState(false)
+  const [isAnswerSubmitted, setIsAnswerSubmitted] = useState(false);
 
-  const {quiz_data} = useQuiz()
+  // CONSTS
+  const quiz_data = useQuiz()
 
   
+  // FUNCTIONS / COMPONENTS
   function renderSummary() {
     const correctAnswers = Object.values(userAnswers).filter(answer => answer === 'correct').length
     const maxScore =quiz_data.length
@@ -42,7 +47,7 @@ const AztecAstronomyQuiz = () => {
       <div className="quiz_sumary">
         <h3>{correctAnswers}/{maxScore}</h3>
         <p>{getSummaryMessage(score)}</p>
-        <button onClick={navigate('/app')}>Quiero aprender más</button>
+        <button>Quiero aprender más</button>
       </div>
     )
   }
@@ -54,12 +59,14 @@ const AztecAstronomyQuiz = () => {
 
     if (questionIndex < quiz_data.length - 1) {
       setQuestionIndex(prev => prev + 1);
+      setIsAnswerSubmitted(false)
     } else {
       setQuizCompleted(true);
     }
   }
 
   function handleAnswerSubmit(isCorrect: boolean) {
+    setIsAnswerSubmitted(true)
     setUserAnswers(prev => ({
       ...prev,
       [questionIndex]: isCorrect ? 'correct' : 'incorrect'
@@ -73,9 +80,11 @@ const AztecAstronomyQuiz = () => {
       <div className="quiz_question">
         <p>Pregutna {questionIndex + 1} de {quiz_data.length}</p>
         <QuizQuestion
+          image_question={currentCuestion.img}
           question={currentCuestion.question}
           options={currentCuestion.options}
           correctAnswer={currentCuestion.answer}
+          isAnswerSubmitted={isAnswerSubmitted}
           onAnswerSubmit={handleAnswerSubmit}
           onNextQuestion={handleNextQuestion}
         />
