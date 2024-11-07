@@ -4,6 +4,7 @@ import { useNews } from "../hooks/useNews"
 import { Header } from "./Header"
 import { Footer } from "./Footer"
 import { Link } from "react-router-dom"
+import LuisCard from "./LuisCard"
 
 const {news} = useNews()
 
@@ -90,6 +91,7 @@ const Presentation: React.FC<PresentationProps> = ({}) => {
         {/* <h2>WELCOME TO <br /> NAHUA VISION</h2> */}
         <p>¿Qué es nahua vision?</p>
         <p>Una guía para explorar el universo a través de los ojos de los antiguos mexicanos</p>
+        <LuisCard />
       </div>
 
       <News
