@@ -52,27 +52,27 @@ const QuizQuestion: React.FC<QuizQuestionProps> = ({
   }
 
   return (
-    <div className="space-y-4">
+    <div className="question_container">
       <div className="question_img_container">
         <img src={image_question} alt="" className='question_img' />
       </div>
-      <h3 className="text-lg font-semibold">{question}</h3>
-      <div className="space-y-2">
+      <h3 className="question_statemetn">{question}</h3>
+      <div className="options_container">
         {options.map((option) => (
          <button
             key={option.id}
             onClick={() => handleOptionSelect(option.id)}
-            className={`w-full text-left p-2 rounded ${
+            className={`question_option ${
               selectedAnswer === option.id
-                ? 'bg-blue-100 border-blue-500'
-                : 'bg-gray-100 hover:bg-gray-200'
+                ? 'selected_option'
+                : ''
             } ${
               isAnswerSubmitted
                 ? option.id === correctAnswer
-                  ? 'bg-green-100 border-green-500'
+                  ? 'correct_answer'
                   : selectedAnswer === option.id
-                  ? 'bg-red-100 border-red-500'
-                  : ''
+                  ? 'wrong_asnwer'
+                  : 'fus'
                 : ''
             }`}
             disabled={isAnswerSubmitted}
@@ -84,7 +84,11 @@ const QuizQuestion: React.FC<QuizQuestionProps> = ({
       {!isAnswerSubmitted && (
         <button
           onClick={handleSubmit}
-          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-gray-300"
+          className={`send_answer_btn ${
+            selectedAnswer
+              ? 'send_btn_active'
+              : ''
+          }`}
           disabled={!selectedAnswer}
         >
           Enviar respuesta
@@ -98,7 +102,12 @@ const QuizQuestion: React.FC<QuizQuestionProps> = ({
             : <h3><span style={{color: 'red'}}>Incorreco</span>, 
               la respuesta correcta es: {options.find((o) => o.id === correctAnswer)?.text}</h3>
           }
-          <button onClick={onNextQuestion}>Siguiente pregunta</button>
+          <button
+            onClick={onNextQuestion}
+            className='next_question_btn'
+          >
+            Siguiente pregunta
+          </button>
         </div>
         )
       }

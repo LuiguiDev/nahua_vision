@@ -4,21 +4,6 @@ import { useQuiz } from '../hooks/useQuiz';
 import { Navigate, Route, Router, Routes, useNavigate, useParams } from 'react-router-dom';
 import '../styles/quiz.css'
 
-interface Option {
-  id: string;
-  text: string;
-}
-interface QuizQuestionProps {
-  question: string;
-  options: Option[];
-  correctAnswer: string;
-  img: string;
-}
-interface QuizDataType {
-  quiz_data: QuizQuestionProps[]
-}
-
-
 const AztecAstronomyQuiz = () => {
   // STATES
   const navigate = useNavigate()
