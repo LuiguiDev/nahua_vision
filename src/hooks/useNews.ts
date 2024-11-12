@@ -1,4 +1,4 @@
-import {news} from '../news.js'
+import {news} from '../../public/data/news.js'
 
 export function useNews() {
   return { news }

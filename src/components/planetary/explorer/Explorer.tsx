@@ -1,10 +1,9 @@
+import './explorer.css'
 import { useEffect, useRef, useState } from "react"
-import '../styles/explorer.css'
-import { useAstros } from "../hooks/useAstros"
-import { UUIDtype, astro, astros } from "../types"
+import { useAstros } from "../../../hooks/useAstros"
+import { UUIDtype, astro, astros } from "../../../types"
 import React from "react"
 import { Line } from "@react-three/drei"
-import { Mesh } from "three"
 
 // EXPERIMENTS
 const ModelElement = () => {

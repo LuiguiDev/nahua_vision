@@ -1,6 +1,6 @@
 import React from "react"
-import { Link, Outlet, useParams } from "react-router-dom"
-import '../../styles/blog.css'
+import { Link } from "react-router-dom"
+import './blog.css'
 
 
 interface BlogProps {

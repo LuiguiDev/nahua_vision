@@ -1,9 +1,12 @@
-import { PerspectiveCamera, PointerLockControls } from "@react-three/drei";
-import { Canvas, useThree } from "@react-three/fiber";
-import { useEffect, useRef } from "react";
-import { Quaternion, Vector3 } from "three";
+// FPV goes for First Person View
 
-export function FPV ({ cameraRef, movement, lookAt }) {
+import { PointerLockControls } from "@react-three/drei";
+import { useThree } from "@react-three/fiber";
+import { useEffect } from "react";
+import { Quaternion, Vector3 } from "three";
+import React from "react";
+
+export function FPV ({ movement, lookAt }) {
   const { camera, gl } = useThree()
 
   useThree(({camera}) => {

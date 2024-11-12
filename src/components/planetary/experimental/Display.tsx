@@ -1,3 +1,5 @@
+import React from "react";
+
 export const Display = ({options}) => {
   const { hidden, title, description } = options
 

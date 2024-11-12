@@ -2,13 +2,13 @@
 /* From header module */
 header {
   width: 100%;
-  padding: 20px;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
-  top: 0;
   background-color: #1d1d1b;
+
+  transform: translateZ(0);
 }
 
 header h2 {

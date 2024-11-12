@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { QuizDataType } from '../components/Quizzes/types';
+import { QuizDataType } from '../components/quizzes/types';
 
 export function useQuiz(): QuizDataType | null {
   const [data, setData] = useState<QuizDataType | null>(null);

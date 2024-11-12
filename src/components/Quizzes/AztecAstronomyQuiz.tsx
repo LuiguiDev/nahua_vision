@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import QuizQuestion from './Quizzes/QuizQuestion';
-import { useQuiz } from '../hooks/useQuiz';
-import { Navigate, Route, Router, Routes, useNavigate, useParams } from 'react-router-dom';
-import '../styles/quiz.css'
+import React, { useState } from 'react';
+import QuizQuestion from './ce/QuizQuestion';
+import { useQuiz } from '../../hooks/useQuiz';
+import { useNavigate } from 'react-router-dom';
+import './quiz.module.css'
 
 const AztecAstronomyQuiz = () => {
   // STATES

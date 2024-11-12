@@ -1,6 +1,7 @@
-import '../styles/loader.css'
+import React from 'react'
+import './loader.css'
 
-export const Loading = () => {
+export const Loader = () => {
   return (
     <div className="loader">
       <div className="spin">

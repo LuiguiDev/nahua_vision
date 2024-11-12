@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import './question.css'
-import { useQuiz } from '../../hooks/useQuiz';
-import '../../styles/quiz.css'
+import './question.module.css'
 
 // TYPES
 interface Option {
@@ -47,8 +45,12 @@ const QuizQuestion: React.FC<QuizQuestionProps> = ({
       const correct = selectedAnswer === correctAnswer;
       setIsCorrect(correct);
       onAnswerSubmit(correct);
-      setSelectedAnswer(null)
     }
+  }
+
+  function handleNextQuestion () {
+    onNextQuestion()
+    setSelectedAnswer(null)
   }
 
   return (
@@ -103,7 +105,7 @@ const QuizQuestion: React.FC<QuizQuestionProps> = ({
               la respuesta correcta es: {options.find((o) => o.id === correctAnswer)?.text}</h3>
           }
           <button
-            onClick={onNextQuestion}
+            onClick={handleNextQuestion}
             className='next_question_btn'
           >
             Siguiente pregunta

@@ -1,5 +1,5 @@
 import React from "react"
-import '../../../styles/blog.css'
+import '../blog.css'
 import { Link } from "react-router-dom"
 
 interface BlogProps {

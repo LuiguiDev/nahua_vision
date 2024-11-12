@@ -23,6 +23,8 @@ html{
   display: flex;
   flex-direction: column;
   position: relative;
+
+  background-color: #1d1d1b;
 }
 
 .logo {

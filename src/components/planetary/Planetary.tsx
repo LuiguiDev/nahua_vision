@@ -1,28 +1,16 @@
 import React, { Suspense } from "react"
-import './styles/app.css'
+import './planetary.module.css'
 import { Canvas } from '@react-three/fiber'
-import { Environment, Line, Sphere } from '@react-three/drei'
+import { Environment } from '@react-three/drei'
 import { Physics } from '@react-three/cannon'
-import { FPV } from './components/FPV'
+import { FPV } from './cameras/FPV'
 import { useCallback, useRef, useState } from 'react'
-import { Loading } from './components/Loading'
-import { Display } from './components/Display'
-import { GTFLModel } from './components/GLFTModel'
-import { Explorer } from './components/Explorer'
-import { useAstros } from './hooks/useAstros'
-import { ModelPointer } from "./components/ModelPointer"
-import Presentation from "./components/Presentation"
-import Blog from "./components/Blog/Articles/MeteorShower"
-import { Route, Routes } from "react-router-dom"
+import { Loader } from '../ui/loader/Loader'
+import { GTFLModel } from './three-loaders/GLFTModel'
+import { Explorer } from './explorer/Explorer'
+import { useAstros } from '../../hooks/useAstros'
 
 function App () {
-  const [displayState, setDisplayState] = useState(
-    {
-      hidden: true,
-      title: '',
-      description: '',
-    }
-  )
   const [touchStart, setTouchStart] = useState({x:0, y:0})
   const [movement, setMovement] = useState({x:0, y:0})
   const [loading, setLoading] = useState(true)
@@ -30,8 +18,6 @@ function App () {
   const cameraRef = useRef(null)
   const [lookAt, setLookAt] = useState([0, 0, 0])
   const { data } = useAstros()
-  const [waiting, setWaiting] = useState(true)
-  const [blog, setBlog] = useState(false)
   
   function handleTouchStart(e: React.TouchEvent<HTMLDivElement>) {
     setTouchStart(
@@ -67,17 +53,9 @@ function App () {
     }, [loading]
   )
   
-  function closeWaiting(newState: boolean) {
-    setWaiting(newState)
-  }
-
-  function goToBlog(newState:boolean) {
-    setBlog(newState)
-  }
-
   return(
     <div className="app">
-      <Suspense fallback={<Loading/>}>
+      <Suspense fallback={<Loader/>}>
           <div className="pointer">+</div>
           <Explorer manageSetLookAt={manageSetLookAt} />
         <Canvas

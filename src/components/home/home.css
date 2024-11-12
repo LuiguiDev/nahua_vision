@@ -1,6 +1,6 @@
 /* Presentation */
-.content {
-  background-color: #1d1d1b;
+.home {
+  background-color: transparent;
   width: 100%;
   height: 100%;
   color: white;
@@ -8,9 +8,10 @@
   align-items: center;
   flex-direction: column;
   flex: 1;
-  margin-top: 75px;
   padding: 0 25px;
   gap: 20px;
+
+  margin-bottom: 60px;
 }
 
 .frets {

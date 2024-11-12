@@ -1,10 +1,13 @@
 import React from "react"
-import '../styles/header.css'
+import './header.css'
+import { Link } from "react-router-dom"
 
 export const Header = () => {
   return (
     <header>
-      <img src="https://i.ibb.co/HY4Jgph/favicon.png" alt="nahua vision logo" className="logo" />
+      <Link to={'/'}>
+        <img src="https://i.ibb.co/HY4Jgph/favicon.png" alt="nahua vision logo" className="logo" />
+      </Link>
       <h2>Nahua vision</h2>
       <i className="fa-solid fa-bars" style={{color: '#ffffff'}}></i>
     </header>

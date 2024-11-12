@@ -2,7 +2,7 @@ import React from "react"
 import { useLoader } from "@react-three/fiber"
 import { useCallback, useEffect } from "react"
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
-import { astro } from "../types"
+import { astro } from "../../../types"
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader"
 
 interface Props {

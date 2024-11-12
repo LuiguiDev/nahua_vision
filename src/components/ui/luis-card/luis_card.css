@@ -16,3 +16,9 @@
   display: block;
   width: 100%;
 }
+
+.luis_bio_link {
+  color: white;
+  text-decoration: underline;
+  text-decoration-color: white;
+}
