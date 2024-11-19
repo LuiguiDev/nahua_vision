@@ -100,8 +100,8 @@ const QuizQuestion: React.FC<QuizQuestionProps> = ({
         <div className="answer_submitted_feedback">
           {
           isCorrect
-            ? <h3 style={{color: 'green'}}>Correcro</h3>
-            : <h3><span style={{color: 'red'}}>Incorreco</span>, 
+            ? <h3 style={{color: 'green'}}>Correcto</h3>
+            : <h3><span style={{color: 'red'}}>Incorrecto</span>, 
               la respuesta correcta es: {options.find((o) => o.id === correctAnswer)?.text}</h3>
           }
           <button

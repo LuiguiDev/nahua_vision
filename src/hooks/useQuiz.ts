@@ -13,7 +13,7 @@ export function useQuiz(): UseQuizResult {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    fetch('../../public/data/quiz_data_2.json')
+    fetch('https://api.npoint.io/5691e3f0e9c55f55fbd5')
       .then((response) => {
         if(!response.ok) {
           throw new Error("Error fetching data");
