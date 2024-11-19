@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, useLocation } from "react-router-dom"
 
 // Blog imports
 import Blog from "./components/Blog/Blog"
@@ -18,20 +18,24 @@ import App from "./components/planetary/Planetary"
 // Quiz imports
 import AztecAstronomyQuiz from "./components/quizzes/AztecAstronomyQuiz"
 
+// footer and header state
 
 function Router () {
+  const location = useLocation();
+  const isAppRoute = location.pathname.startsWith('/app');
+  
   return(
     <div className="global">
-      <Header />
+      {!isAppRoute && <Header />}
         <Routes>
-          <Route path="/quizz" element={<AztecAstronomyQuiz />} />
+          <Route path="/quiz" element={<AztecAstronomyQuiz />} />
           <Route path="/app" element={<App />} />
           <Route path="/" element={<Home />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/eclipse-solar" element={<EclipseSolar />}/>
           <Route path="/blog/lluvia-de-estrellas" element={<MeteorShower />} />
         </Routes>
-      <Footer extended={false}/>
+      {!isAppRoute && <Footer extended={false}/>}
     </div>
   )
 }

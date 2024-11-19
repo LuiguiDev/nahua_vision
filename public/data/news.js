@@ -20,7 +20,7 @@ export const news = [
       date: '2023-12-13T18:00:00',
       title: 'Don\'t miss the metour shower tonight',
       body: 'Starts at 9:00 pm'
-    }
+    },
   },
   {
     date: '12/11/2024',

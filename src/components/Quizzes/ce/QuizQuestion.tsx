@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './question.module.css'
+import './question.css'
 
 // TYPES
 interface Option {

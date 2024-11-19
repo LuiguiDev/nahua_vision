@@ -3,6 +3,7 @@
 }
 .app {
   z-index: 2;
+  position: relative;
 }
 .display {
   position: fixed;

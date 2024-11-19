@@ -69,7 +69,7 @@
     "img": "https://i.ibb.co/rsSP73B/citlali-cometa.png"
   },
   {
-    "question": "¿Cómo nombraron al planeta venus los nahuas?",
+    "question": "¿Qué dios estaba asociado al planeta venus los nahuas?",
     "options": [
       {
         "id": "a",
@@ -92,118 +92,72 @@
     "img": "https://i.ibb.co/BK3bfPR/xolotl-venus.png"
   },
   {
-    "question": "¿Qué imagen se usaba para representar a un astronomo?",
+    "question": "¿Qué nombre crees que tienen las pléyades en náhuatl?",
     "options": [
       {
         "id": "a",
-        "text": "1"
+        "text": "Tinaguistli"
       },
       {
         "id": "b",
-        "text": "2"
+        "text": "Xonecuilli"
       },
       {
         "id": "c",
-        "text": "3"
+        "text": "Mamalhuaztli"
       },
       {
         "id": "d",
-        "text": "4"
+        "text": "Mixcóatl"
       }
     ],
     "answer": "a",
-    "img": ""
+    "img": "https://i.ibb.co/0Gz7JLw/pleyades-questoin.webp"
   },
   {
-    "question": "¿Qué imagen se usaba para representar a un observatorio astronómico?",
+    "question": "¿Cuál es el nombre de la constelación de la Osa Menor en náhuatl?",
     "options": [
       {
         "id": "a",
-        "text": "1"
+        "text": "Citlaltlachtli"
       },
       {
         "id": "b",
-        "text": "2"
+        "text": "Xonecuilli"
       },
       {
         "id": "c",
-        "text": "3"
+        "text": "Mamalhuaztli"
       },
       {
         "id": "d",
-        "text": "4"
+        "text": "Mixcóatl"
       }
     ],
-    "answer": "c",
-    "img": ""
+    "answer": "b",
+    "img": "https://i.ibb.co/xgxngrt/osa-menor-question.png"
   },
   {
-    "question": "¿Qué imagen representa al sol?",
+    "question": "¿Cómo llamaban los mexicas a la Vía Láctea?",
     "options": [
       {
         "id": "a",
-        "text": "1"
+        "text": "Citlaltlachtli"
       },
       {
         "id": "b",
-        "text": "2"
+        "text": "Xonecuilli"
       },
       {
         "id": "c",
-        "text": "3"
+        "text": "Mamalhuaztli"
       },
       {
         "id": "d",
-        "text": "4"
-      }
-    ],
-    "answer": "a",
-    "img": ""
-  },
-  {
-    "question": "¿Qué imagen representa a la constelación del cinturón de orión?",
-    "options": [
-      {
-        "id": "a",
-        "text": "1"
-      },
-      {
-        "id": "b",
-        "text": "2"
-      },
-      {
-        "id": "c",
-        "text": "3"
-      },
-      {
-        "id": "d",
-        "text": "4"
-      }
-    ],
-    "answer": "a",
-    "img": ""
-  },
-  {
-    "question": "¿Qué imagen representa a la constelación de las pléyades?",
-    "options": [
-      {
-        "id": "a",
-        "text": "1"
-      },
-      {
-        "id": "b",
-        "text": "2"
-      },
-      {
-        "id": "c",
-        "text": "3"
-      },
-      {
-        "id": "d",
-        "text": "4"
+        "text": "Mixcóatl"
       }
     ],
     "answer": "d",
-    "img": ""
+    "img": "https://i.ibb.co/ZBqxQkB/via-lactea.webp"
   }
 ]

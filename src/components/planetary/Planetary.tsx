@@ -1,5 +1,5 @@
 import React, { Suspense } from "react"
-import './planetary.module.css'
+import './planetary.css'
 import { Canvas } from '@react-three/fiber'
 import { Environment } from '@react-three/drei'
 import { Physics } from '@react-three/cannon'
@@ -9,6 +9,7 @@ import { Loader } from '../ui/loader/Loader'
 import { GTFLModel } from './three-loaders/GLFTModel'
 import { Explorer } from './explorer/Explorer'
 import { useAstros } from '../../hooks/useAstros'
+import { AppHeader } from "../layout/app header/AppHeader"
 
 function App () {
   const [touchStart, setTouchStart] = useState({x:0, y:0})
@@ -55,8 +56,8 @@ function App () {
   
   return(
     <div className="app">
+      <AppHeader />
       <Suspense fallback={<Loader/>}>
-          <div className="pointer">+</div>
           <Explorer manageSetLookAt={manageSetLookAt} />
         <Canvas
           onTouchStart={(e) => handleTouchStart(e)}

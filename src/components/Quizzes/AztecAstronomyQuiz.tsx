@@ -2,24 +2,25 @@ import React, { useState } from 'react';
 import QuizQuestion from './ce/QuizQuestion';
 import { useQuiz } from '../../hooks/useQuiz';
 import { useNavigate } from 'react-router-dom';
-import './quiz.module.css'
+import './quiz.css'
+import Page404 from '../errors/404/page404';
+import { QuizQuestionProps } from './types';
+import { Loader } from '../ui/loader/Loader';
 
 const AztecAstronomyQuiz = () => {
   // STATES
-  const navigate = useNavigate()
   const [questionIndex, setQuestionIndex] = useState(-1)
   const [userAnswers, setUserAnswers] = useState({})
   const [quizCompleted, setQuizCompleted] = useState(false)
   const [isAnswerSubmitted, setIsAnswerSubmitted] = useState(false);
 
   // CONSTS
-  const quiz_data = useQuiz()
+  const {data: quiz_data, loading, error} = useQuiz()
 
-  
   // FUNCTIONS / COMPONENTS
   function renderSummary() {
     const correctAnswers = Object.values(userAnswers).filter(answer => answer === 'correct').length
-    const maxScore =quiz_data.length
+    const maxScore =quiz_data?.length ?? 0
     const score = correctAnswers/maxScore
     
     function getSummaryMessage(score:number) {
@@ -32,20 +33,21 @@ const AztecAstronomyQuiz = () => {
       <div className="quiz_sumary">
         <h3>{correctAnswers}/{maxScore}</h3>
         <p>{getSummaryMessage(score)}</p>
-        <button>Quiero aprender más</button>
+        <button style={{marginTop: '15px'}} className='question_option'>Quiero aprender más</button>
       </div>
     )
   }
   function handleStartQuiz() {
     setQuestionIndex(0)
   }
-  const handleNextQuestion = () => {
-    const currentQuestion = quiz_data[questionIndex];
 
-    if (questionIndex < quiz_data.length - 1) {
+  const handleNextQuestion = () => {
+    /* const currentQuestion = quiz_data[questionIndex]; */
+
+    if (quiz_data && quiz_data.length > 0) {
       setQuestionIndex(prev => prev + 1);
       setIsAnswerSubmitted(false)
-    } else {
+    } else if(questionIndex === quiz_data?.length) {
       setQuizCompleted(true);
     }
   }
@@ -59,43 +61,48 @@ const AztecAstronomyQuiz = () => {
   }
 
   function renderQuestion() {
-    const currentCuestion = quiz_data[questionIndex]
+    if(quiz_data && quiz_data?.length > 0) {
+      const currentCuestion = quiz_data[questionIndex]
 
-    return(
-      <div className="quiz_question">
-        <p>Pregutna {questionIndex + 1} de {quiz_data.length}</p>
-        <QuizQuestion
-          image_question={currentCuestion.img}
-          question={currentCuestion.question}
-          options={currentCuestion.options}
-          correctAnswer={currentCuestion.answer}
-          isAnswerSubmitted={isAnswerSubmitted}
-          onAnswerSubmit={handleAnswerSubmit}
-          onNextQuestion={handleNextQuestion}
-        />
-      </div>
-    )
+      return(
+        <div className="quiz_question">
+          <p>Pregutna {questionIndex + 1} de {quiz_data.length}</p>
+          <QuizQuestion
+            image_question={currentCuestion?.img}
+            question={currentCuestion.question}
+            options={currentCuestion.options}
+            correctAnswer={currentCuestion.answer}
+            isAnswerSubmitted={isAnswerSubmitted}
+            onAnswerSubmit={handleAnswerSubmit}
+            onNextQuestion={handleNextQuestion}
+          />
+        </div>
+      )
+    }
   }
 
   function renderQuizContent() {
+    if (loading) return (<Loader />)
+
     if(questionIndex === -1) {
       return(
-        <div>
+        <div className='quiz_welcome'>
           {/* presentation image */}
           <h3>Bienvenido al qui de astronomía azteca</h3>
-          <button onClick={handleStartQuiz}>Comenzar quiz</button>
+          <img src='https://i.ibb.co/McdKvSF/quiz-portada-dalle.webp' />
+          <button className='question_option' onClick={handleStartQuiz}>Comenzar quiz</button>
         </div>
       )
-    }else if(quizCompleted){
-      return renderSummary()
-    }else{
+    }else if(questionIndex < quiz_data?.length){
       return renderQuestion()
+    }else{
+      return renderSummary()
     }
   }
 
   return (
-    <div className="quiz_container" style={{marginBottom: '50px'}}>
-      <h1>Quiz de astronomía azteca</h1>
+    <div className="page_container" >
+      <h2>Quiz de astronomía azteca</h2>
       {renderQuizContent()}
     </div>
   );

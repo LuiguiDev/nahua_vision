@@ -5,7 +5,7 @@ export interface Option {
 export interface QuizQuestionProps {
   question: string;
   options: Option[];
-  correctAnswer: string;
+  answer: string;
   img: string;
 }
 export interface QuizDataType {

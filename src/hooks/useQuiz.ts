@@ -1,15 +1,37 @@
 import React, { useEffect, useState } from 'react'
-import { QuizDataType } from '../components/quizzes/types';
+import { QuizDataType, QuizQuestionProps } from '../components/quizzes/types';
 
-export function useQuiz(): QuizDataType | null {
-  const [data, setData] = useState<QuizDataType | null>(null);
+interface UseQuizResult {
+  data: QuizQuestionProps[] | null;
+  loading: boolean;
+  error: string | null;
+}
+
+export function useQuiz(): UseQuizResult {
+  const [data, setData] = useState<QuizQuestionProps[] | null>(null);
+  const [loading, setLoading] = useState<boolean>(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     fetch('../../public/data/quiz_data_2.json')
-      .then((response) => response.json())
-      .then((jsonData) => setData(jsonData))
-      .catch((error) => console.error('Error fetching JSON:', error));
+      .then((response) => {
+        if(!response.ok) {
+          throw new Error("Error fetching data");
+        }
+        return response.json()
+      })
+      .then((jsonData) => {
+        setData(jsonData)
+        setLoading(false)
+      })
+      .catch((error) => {
+        if(error) {
+          setError(error.message)
+          setLoading(false)
+        }
+        }
+      );
   }, []);
 
-  return data
+  return {data, loading, error}
 }

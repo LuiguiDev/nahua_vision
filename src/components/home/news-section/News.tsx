@@ -2,6 +2,8 @@ import React from "react";
 // types
 import { newsProps, notificationProps } from "./notification_types";
 import { Link } from "react-router-dom";
+//styles
+import './news.css'
 
 function createNotification(notification:notificationProps) {
   const {date, title, body} = notification
@@ -38,25 +40,24 @@ const News: React.FC<newsProps> = ({headline, image, notification}) => {
 
   return(
     <article className="news_container">
-      <div className="news_header">
-        <p>Próximos eventos astronómicos</p>
+      <img className="news_img" src={imgSrc} alt={imgAlt} />
+      <div className="news_description">
         <h3>{headline}</h3>
-      </div>
-      <img src={imgSrc} alt={imgAlt} />
-      <div className="news_buttons">
-        <button className="news_btn">
-          <Link to={'./blog'}>Leer artículo</Link>
-        </button>
-        {
-          notification !== null && (
-            <button 
-              className="news_btn"
-              onClick={() => createNotification(notification)}
-            >
-              <i className="fa-solid fa-bell notification" style={{color: '#ffffff'}}></i>  Notificarme
-            </button>
-          )
-        }
+        <div className="news_btns">
+          <button className="news_btn">
+            <Link to={'./quiz'}>Tomar quiz</Link>
+          </button>
+          {
+            notification !== null && (
+              <button 
+                className="news_btn"
+                onClick={() => createNotification(notification)}
+              >
+                <i className="fa-solid fa-bell notification" style={{color: '#ffffff'}}></i>  Notificarme
+              </button>
+            )
+          }
+        </div>
       </div>
     </article>
   )

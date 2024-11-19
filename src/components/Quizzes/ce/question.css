@@ -18,11 +18,12 @@
 }
 
 .question_option {
-  background: none;
   color: white;
   padding: 10px 20px;
   border: 1.5px solid white;
   border-radius: 10px;
+
+  background-color: #1a1a1b3b;
 }
 
 .selected_option {
@@ -59,4 +60,6 @@
   border: none;
   padding: 10px 20px;
   border-radius: 10px;
+
+  font-weight: bold;
 }

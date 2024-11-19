@@ -6,7 +6,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1d1d1b;
+  background: transparent;
 
   transform: translateZ(0);
 }
@@ -14,10 +14,6 @@ header {
 header h2 {
   font-weight: bold;
   color: white;
-}
-
-.header_text p {
-  color: #ffffffd5;
 }
 
 i {

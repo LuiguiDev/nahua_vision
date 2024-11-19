@@ -15,9 +15,9 @@ interface PresentationProps {
 
 const Home: React.FC<PresentationProps> = ({}) => {
   return (
-    <main className="home">
+    <main className="page_container">
       <div className="header_text">
-        <p>¿Qué es nahua vision?</p>
+        <p><span>¿Qué es nahua vision?</span></p>
         <p>Una guía para explorar el universo a través de los ojos de los antiguos mexicanos</p>
         <LuisCard />
       </div>
