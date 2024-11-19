@@ -16,7 +16,7 @@ import Home from './components/home/Home'
 import App from "./components/planetary/Planetary"
 
 // Quiz imports
-import AztecAstronomyQuiz from "./components/quizzes/AztecAstronomyQuiz"
+import { AztecAstronomyQuiz } from "./components/quizzes/AztecAstronomyQuiz"
 
 // footer and header state
 

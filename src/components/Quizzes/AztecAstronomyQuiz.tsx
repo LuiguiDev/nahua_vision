@@ -4,7 +4,7 @@ import { useQuiz } from '../../hooks/useQuiz';
 import './quiz.css'
 import { Loader } from '../ui/loader/Loader';
 
-const AztecAstronomyQuiz = () => {
+export const AztecAstronomyQuiz = () => {
   // STATES
   const [questionIndex, setQuestionIndex] = useState(-1)
   const [userAnswers, setUserAnswers] = useState({})
@@ -104,5 +104,3 @@ const AztecAstronomyQuiz = () => {
     </div>
   );
 };
-
-export default AztecAstronomyQuiz
