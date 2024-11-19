@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import QuizQuestion from './ce/QuizQuestion';
 import { useQuiz } from '../../hooks/useQuiz';
-import { useNavigate } from 'react-router-dom';
 import './quiz.css'
-import Page404 from '../errors/404/page404';
-import { QuizQuestionProps } from './types';
 import { Loader } from '../ui/loader/Loader';
 
 const AztecAstronomyQuiz = () => {
