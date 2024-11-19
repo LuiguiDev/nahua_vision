@@ -18,8 +18,6 @@ import App from "./components/planetary/Planetary"
 // Quiz imports
 import { AztecAstronomyQuiz } from "./components/quizzes/AztecAstronomyQuiz.tsx"
 
-// footer and header state
-
 function Router () {
   const location = useLocation();
   const isAppRoute = location.pathname.startsWith('/app');

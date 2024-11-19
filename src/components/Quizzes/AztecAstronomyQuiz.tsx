@@ -12,7 +12,7 @@ export const AztecAstronomyQuiz = () => {
   const [isAnswerSubmitted, setIsAnswerSubmitted] = useState(false);
 
   // CONSTS
-  const {data: quiz_data, loading, error} = useQuiz()
+  const {data: quiz_data, loading} = useQuiz()
 
   // FUNCTIONS / COMPONENTS
   function renderSummary() {
@@ -92,7 +92,7 @@ export const AztecAstronomyQuiz = () => {
       )
     }else if(quiz_data && questionIndex < quiz_data?.length){
       return renderQuestion()
-    }else{
+    }else if(quizCompleted){
       return renderSummary()
     }
   }
