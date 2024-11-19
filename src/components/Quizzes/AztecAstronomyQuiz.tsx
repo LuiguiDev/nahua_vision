@@ -93,7 +93,7 @@ const AztecAstronomyQuiz = () => {
           <button className='question_option' onClick={handleStartQuiz}>Comenzar quiz</button>
         </div>
       )
-    }else if(questionIndex < quiz_data?.length){
+    }else if(quiz_data && questionIndex < quiz_data?.length){
       return renderQuestion()
     }else{
       return renderSummary()
