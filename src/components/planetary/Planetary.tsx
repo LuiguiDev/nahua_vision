@@ -1,15 +1,22 @@
+// react and css imports
 import React, { Suspense } from "react"
+import { useCallback, useRef, useState } from 'react'
 import './planetary.css'
+
+// three js imports
 import { Canvas } from '@react-three/fiber'
 import { Environment } from '@react-three/drei'
 import { Physics } from '@react-three/cannon'
-import { FPV } from './cameras/FPV'
-import { useCallback, useRef, useState } from 'react'
-import { Loader } from '../ui/loader/Loader'
 import { GTFLModel } from './three-loaders/GLFTModel'
+
+// components
+import { FPV } from './cameras/FPV'
 import { Explorer } from './explorer/Explorer'
-import { useAstros } from '../../hooks/useAstros'
 import { AppHeader } from "../layout/app header/AppHeader"
+import { Loader } from '../ui/loader/Loader'
+
+// custome hooks
+import { useAstros } from '../../hooks/useAstros'
 
 function App () {
   const [touchStart, setTouchStart] = useState({x:0, y:0})
@@ -42,6 +49,8 @@ function App () {
     setMovement(newState)
     setTouchStart({x: newX, y: newY})
   }
+  
+  document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
 
   function manageSetLookAt(position: [number, number, number]) {
     setLookAt(position)
@@ -55,7 +64,10 @@ function App () {
   )
   
   return(
-    <div className="app">
+    <div 
+      className="app"
+      style={{height: `calc(var(--vh, 1vh) * 100)`}}
+    >
       <AppHeader />
       <Suspense fallback={<Loader/>}>
           <Explorer manageSetLookAt={manageSetLookAt} />
