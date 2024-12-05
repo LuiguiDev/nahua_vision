@@ -9,9 +9,9 @@ interface ImagePackProps {
 const ImagePack: React.FC <ImagePackProps> = ({ title, cover }) => {
   return(
     <div className="image_pack_container">
-      <h3>{title}</h3>
-      <img src={ cover } />
-      <button>Descargar</button>
+      <p>{title}</p>
+      <img src={ cover } className="pack_cover"/>
+      <button className="action_button">Descargar pack</button>
     </div>
   )
 }

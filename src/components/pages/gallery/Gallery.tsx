@@ -5,8 +5,8 @@ import ImagePack from './ImagePack'
 const Gallery = () => {
   return(
     <main className="page_container">
-      <h2>Descarga las imagenes de Nahua Vision adaptadas para fondo de pantalle GRATIS</h2>
-      <ImagePack cover='' title='Fondos de pantalla con etiqueta' />
+      <h3>Descarga las imagenes de Nahua Vision adaptadas para fondo de pantalle GRATIS</h3>
+      <ImagePack cover='./../img/cover.jpg' title='Fondos de pantalla con etiqueta' />
     </main>
   )
 }
