@@ -2,8 +2,8 @@ import { Route, Routes, useLocation } from "react-router-dom"
 
 // Blog imports
 import Blog from "./components/Blog/Blog"
-import MeteorShower from "./components/Blog/Articles/MeteorShower"
-import EclipseSolar from "./components/Blog/Articles/EclipseSolar"
+import MeteorShower from "./components/blog/Articles/MeteorShower"
+import EclipseSolar from "./components/blog/Articles/EclipseSolar"
 
 // Layout imports
 import { Header } from "./components/layout/header/Header"
