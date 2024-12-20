@@ -4,6 +4,7 @@ export interface Option {
 }
 export interface QuizQuestionProps {
   question: string;
+  question_id: string;
   options: Option[];
   answer: string;
   img: string;

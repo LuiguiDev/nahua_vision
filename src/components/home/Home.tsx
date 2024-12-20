@@ -17,7 +17,7 @@ const Home: React.FC<PresentationProps> = ({}) => {
   return (
     <main className="page_container">
       <div className="header_text">
-        <p><span>¿Qué es nahua vision?</span></p>
+        <p><strong>¿Qué es <span translate="no">nahua vision?</span></strong></p>
         <p>Una guía para explorar el universo a través de los ojos de los antiguos mexicanos</p>
         <LuisCard />
       </div>

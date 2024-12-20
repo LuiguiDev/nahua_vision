@@ -4,11 +4,21 @@
   gap: 15px;
 }
 
+.question_img_container {
+  min-height: 100px;
+  background: rgb(0,0,0);
+  background: linear-gradient(320deg, rgba(0,0,0,0.1321341036414566) 17%, rgba(58,58,58,1) 100%);
+}
+
 .question_img {
   max-width: 100%;
   max-height: 300px;
   display: block;
   margin: auto;
+}
+
+.blurry {
+  filter: blur(4px);
 }
 
 .options_container {

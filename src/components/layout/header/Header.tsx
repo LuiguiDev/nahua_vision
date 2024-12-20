@@ -8,7 +8,7 @@ export const Header = () => {
       <Link to={'/'}>
         <img src="https://i.ibb.co/HY4Jgph/favicon.png" alt="nahua vision logo" className="logo" />
       </Link>
-      <h2>Nahua vision</h2>
+      <h2 translate="no">Nahua vision</h2>
       <i className="fa-solid fa-bars" style={{color: '#ffffff'}}></i>
     </header>
   )

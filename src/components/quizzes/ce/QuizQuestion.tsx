@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import './question.css'
 
 // TYPES
@@ -8,6 +8,7 @@ interface Option {
 }
 interface QuizQuestionProps {
   image_question: string;
+  img_onloading: string;
   question: string;
   options: Option[];
   correctAnswer: string;
@@ -16,12 +17,23 @@ interface QuizQuestionProps {
   onNextQuestion: () => void;
 }
 
+interface imgOnLoadingProps {
+  image: string
+}
+
+const ImgOnLoading = () => {
+  return(
+    <img src={"https://i.ibb.co/vZDVmZc/meteor-shower-at-teotihuacan-on-Loading.webp"} className='blurry' />
+  )
+}
+
 // MAIN COMPONENT
 const QuizQuestion: React.FC<QuizQuestionProps> = ({ 
   question,
   options = [], // Provide a default empty array
   correctAnswer,
   image_question,
+  img_onloading,
   isAnswerSubmitted,
   onAnswerSubmit,
   onNextQuestion,
@@ -47,7 +59,6 @@ const QuizQuestion: React.FC<QuizQuestionProps> = ({
       onAnswerSubmit(correct);
     }
   }
-
   function handleNextQuestion () {
     onNextQuestion()
     setSelectedAnswer(null)
@@ -55,9 +66,13 @@ const QuizQuestion: React.FC<QuizQuestionProps> = ({
 
   return (
     <div className="question_container">
-      <div className="question_img_container">
-        <img src={image_question} alt="" className='question_img' />
-      </div>
+      <Suspense fallback={<ImgOnLoading/>}>
+        <div className="question_img_container">
+          {/* lazy loading images doesnt work */}
+            <img src={image_question} alt="" className='question_img' />
+        </div>
+        </Suspense>
+
       <h3 className="question_statemetn">{question}</h3>
       <div className="options_container">
         {options.map((option) => (

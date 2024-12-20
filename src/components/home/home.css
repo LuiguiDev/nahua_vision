@@ -20,10 +20,6 @@
   gap: 10px;
 }
 
-.header_text span {
-  font-weight: 700;
-}
-
 .frets {
   width: 100%;
   rotate: 180deg;
