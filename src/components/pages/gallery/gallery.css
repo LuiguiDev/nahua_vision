@@ -8,3 +8,22 @@
 
   gap: 15px;
 }
+
+
+/* side components */
+.trash_btn {
+  background-color: rgb(226, 43, 43);
+  border: none;
+}
+
+.download_btn {
+  background-color: white;
+  border: none;
+
+  color: black;
+}
+
+.disabled {
+  background-color: grey;
+  color: rgb(46, 46, 46);
+}

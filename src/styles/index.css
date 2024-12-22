@@ -11,14 +11,29 @@ html, body, #root {
 }
 html{
   min-height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
 }
 
 h4 {
   color: white;
 }
 
+button {
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 10px;
+  border: 2px solid white;
+  background-color: transparent;
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
 .global {
   width: 100%;
+  max-width: 450px;
   min-height: 100vh;
   overflow-x: hidden;
   display: flex;
@@ -63,7 +78,7 @@ h4 {
 .page_container::before {
   width: 300px;
   height: 300px;
-  background-color: #7f809e; /* Primer color de mancha */
+  background-color: #C4C7FF; /* Primer color de mancha */
   top: 0px;
   left: -150px;
 }
@@ -71,7 +86,7 @@ h4 {
 .page_container::after {
   width: 100px;
   height: 100px;
-  background-color: #ff9d00; /* Segundo color de mancha */
+  background-color: #FF9A00; /* Segundo color de mancha */
   bottom: 20px;
   right: -50px;
 }
