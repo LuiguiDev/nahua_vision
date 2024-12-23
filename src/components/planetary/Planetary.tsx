@@ -70,7 +70,7 @@ function App () {
     >
       <AppHeader />
       <Suspense fallback={<Loader/>}>
-          <Explorer manageSetLookAt={manageSetLookAt} />
+        <Explorer manageSetLookAt={manageSetLookAt} />
         <Canvas
           onTouchStart={(e) => handleTouchStart(e)}
           onTouchMove={(e) => handleTouchMove(e)}

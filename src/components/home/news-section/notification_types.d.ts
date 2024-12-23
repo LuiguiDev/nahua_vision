@@ -1,15 +1,9 @@
-export interface newsProps {
-  date: string
-  headline: string,
+export interface featureProps {
+  headline: string
+  description: string
   image: {
     imgSrc: string
     imgAlt: string
   }
-  notification: notificationProps | null
-}
-
-export type notificationProps = {
-  date: string
-  title: string
-  body: string
+  button: string
 }

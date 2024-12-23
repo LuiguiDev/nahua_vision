@@ -20,6 +20,7 @@ import { AztecAstronomyQuiz } from "./components/quizzes/AztecAstronomyQuiz.tsx"
 
 // gallery
 import Gallery from './components/pages/gallery/Gallery.tsx'
+import { Explorer } from "./components/planetary/explorer/Explorer.tsx"
 
 function Router () {
   const location = useLocation();
