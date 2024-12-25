@@ -34,6 +34,8 @@ function Router () {
           <Route path="/app" element={<App />} />
           <Route path="/quiz" element={<AztecAstronomyQuiz />} />
 
+          <Route path="/explorer" element={<Explorer />} />
+
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/eclipse-solar" element={<EclipseSolar />}/>
           <Route path="/blog/lluvia-de-estrellas" element={<MeteorShower />} />

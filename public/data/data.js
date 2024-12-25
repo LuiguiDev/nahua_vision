@@ -10,7 +10,7 @@ export const data = [
     scale: 1.5,
     images: {
       thumbnail: {
-        src: 'https://i.ibb.co/S56L0Pw/Meztli-labeled.webp',
+        src: 'https://i.ibb.co/qDfqV5h/Meztli.webp',
         alt: ''
       }
     }
@@ -27,7 +27,7 @@ export const data = [
     scale: 4,
     images: {
       thumbnail: {
-        src: 'https://i.ibb.co/zhtK0WZ/Tonatiuh-labeled.webp'
+        src: 'https://i.ibb.co/n0GKtps/Tonatiuh.webp'
       }
     }
   },
@@ -42,7 +42,7 @@ export const data = [
     scale: 1.5,
     images: {
       thumbnail: {
-        src: 'https://i.ibb.co/6XyjWWb/Xolotl-labeled.webp'
+        src: 'https://i.ibb.co/jy7yC1m/Venus.webp'
       }
     }
   },
@@ -57,7 +57,7 @@ export const data = [
     scale: 1,
     images: {
       thumbnail: {
-        src: 'https://i.ibb.co/k9YKfsH/Citlalin-popoca-labeled.webp'
+        src: 'https://i.ibb.co/5cYYgN3/Citlalin-popoca.webp'
       }
     }
   },

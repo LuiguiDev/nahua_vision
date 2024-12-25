@@ -4,6 +4,7 @@ import { featureProps } from "./notification_types";
 import { Link } from "react-router-dom";
 //styles
 import './news.css'
+import { SUPORTED_ROUTES } from "../../../constants/suported_routes";
 
 const FeatureCard: React.FC<featureProps> = (  
   {
@@ -24,7 +25,7 @@ const FeatureCard: React.FC<featureProps> = (
         <p>{description}</p>
         <div className="feature_btns">
           <button className="feature_btn">
-            <Link to={'./quiz'}>{button}</Link>
+            <Link to={SUPORTED_ROUTES.PLANETARY}>{button}</Link>
           </button>
         </div>
       </section>

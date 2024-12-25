@@ -25,6 +25,46 @@ const FEATURES = [
     button: 'Tomar quiz'
   }
 ]
+
+const ShortPitch = () => {
+  return (
+    <div className="header_text">
+      <p><strong>¿Qué es <span translate="no">nahua vision?</span></strong></p>
+      <p>Una guía para explorar el universo a través de los ojos de los antiguos mexicanos</p>
+      <LuisCard />
+    </div>
+  )
+}
+
+const Featured = ({ data }) => {
+  return (
+    <div className="featured_container">
+      <div className="fature_slider">
+        {
+          data.map(feature => (
+            <FeatureCard
+              headline={feature.title}
+              description={feature.description}
+              image={feature.image}
+              button={feature.button}
+            />  
+          ))
+        }
+      </div>
+
+      <div className="features_mini">
+        <div 
+          className="images"
+          style={{display: 'grid', gridTemplateColumns: '50px 50px', gap:'15px'}}
+        >
+          <img src={FEATURES[0].image.imgSrc} style={{width: '100%', aspectRatio: '1/1', objectFit:'cover'}}/>
+          <img src={FEATURES[1].image.imgSrc} style={{width: '100%'}}/>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 // to do: move types to an independent file
 interface PresentationProps {
   closeWaiting: (newState: boolean) => void 
@@ -34,36 +74,9 @@ interface PresentationProps {
 const Home: React.FC<PresentationProps> = ({}) => {
   return (
     <main className="page_container">
-      <div className="header_text">
-        <p><strong>¿Qué es <span translate="no">nahua vision?</span></strong></p>
-        <p>Una guía para explorar el universo a través de los ojos de los antiguos mexicanos</p>
-        <LuisCard />
-      </div>
-
-      <FeatureCard
-        headline={FEATURES[0].title}
-        description={FEATURES[0].description}
-        image={FEATURES[0].image}
-        button={FEATURES[0].button}
-      />
-      <div className="features_container">
-        <div 
-          className="images"
-          style={{display: 'grid', gridTemplateColumns: '50px 50px', gap:'15px'}}
-        >
-          <img src={FEATURES[0].image.imgSrc} style={{width: '100%', aspectRatio: '1/1', objectFit:'cover'}}/>
-          <img src={FEATURES[1].image.imgSrc} style={{width: '100%'}}/>
-        </div>
-      </div>
-
-
-  {/*       <button className="start_btn">
-        <Link to={'./app'}>
-          Ir al planetario
-        </Link>
-      </button>
-*/ }
- </main>
+      <ShortPitch />
+      <Featured data={FEATURES} />
+    </main>
   )
 }
 
