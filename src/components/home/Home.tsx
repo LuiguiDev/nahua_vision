@@ -13,7 +13,7 @@ const FEATURES = [
     title: 'Planetario Azteca',
     description: 'Conoce los nombres que los aztecas dierion a los astros',
     image: {
-      imgSrc: 'https://i.ibb.co/41YMZQt/Feature-cover-Planetary.webp',
+      imgSrc: 'https://i.ibb.co/JcLPxrR/Feature-cover-Planetary-1.webp',
       imgAlt: ''
     },
     button: 'Ir al planetario'

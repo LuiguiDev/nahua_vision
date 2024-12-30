@@ -3,10 +3,14 @@ import './loader.css'
 
 export const Loader = () => {
   return (
-    <div className="loader">
-      <div className="spin">
+    <div className="loader_container">
+      <div className="spiner_container">
+        <div className="spiner">
+        </div>
+        <img className="eye" src='https://i.ibb.co/PNXgfGW/loader-eye.webp'/>
       </div>
-      <img className="eye" src='https://i.ibb.co/PNXgfGW/loader-eye.webp'/>
+
+      <p>Cargando...</p>
     </div>
   )
 }

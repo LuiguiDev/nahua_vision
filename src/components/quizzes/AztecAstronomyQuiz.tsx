@@ -64,17 +64,17 @@ export const AztecAstronomyQuiz = () => {
       return(
         <div className="quiz_question">
           <p>Pregunta {questionIndex + 1} de {quiz_data.length}</p>
-            <QuizQuestion
-              key={currentCuestion.question_id}
-              image_question={currentCuestion?.img}
-              img_onloading={"https://i.ibb.co/vZDVmZc/meteor-shower-at-teotihuacan-on-Loading.webp"}
-              question={currentCuestion.question}
-              options={currentCuestion.options}
-              correctAnswer={currentCuestion.answer}
-              isAnswerSubmitted={isAnswerSubmitted}
-              onAnswerSubmit={handleAnswerSubmit}
-              onNextQuestion={handleNextQuestion}
-            />
+          <QuizQuestion
+            key={currentCuestion.question_id}
+            image_question={currentCuestion?.img}
+            img_onloading={"https://i.ibb.co/vZDVmZc/meteor-shower-at-teotihuacan-on-Loading.webp"}
+            question={currentCuestion.question}
+            options={currentCuestion.options}
+            correctAnswer={currentCuestion.answer}
+            isAnswerSubmitted={isAnswerSubmitted}
+            onAnswerSubmit={handleAnswerSubmit}
+            onNextQuestion={handleNextQuestion}
+          />
         </div>
       )
     }

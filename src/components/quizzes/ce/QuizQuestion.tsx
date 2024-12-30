@@ -69,7 +69,7 @@ const QuizQuestion: React.FC<QuizQuestionProps> = ({
       <Suspense fallback={<ImgOnLoading/>}>
         <div className="question_img_container">
           {/* lazy loading images doesnt work */}
-            <img src={image_question} alt="" className='question_img' />
+          <img src={image_question} alt="" className='question_img' />
         </div>
         </Suspense>
 

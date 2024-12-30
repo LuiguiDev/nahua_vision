@@ -21,6 +21,7 @@ import { AztecAstronomyQuiz } from "./components/quizzes/AztecAstronomyQuiz.tsx"
 // gallery
 import Gallery from './components/pages/gallery/Gallery.tsx'
 import { Explorer } from "./components/planetary/explorer/Explorer.tsx"
+import { Loader } from "./components/ui/loader/Loader.tsx"
 
 function Router () {
   const location = useLocation();
@@ -34,7 +35,7 @@ function Router () {
           <Route path="/app" element={<App />} />
           <Route path="/quiz" element={<AztecAstronomyQuiz />} />
 
-          <Route path="/explorer" element={<Explorer />} />
+          <Route path="/loading" element={<Loader />} />
 
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/eclipse-solar" element={<EclipseSolar />}/>

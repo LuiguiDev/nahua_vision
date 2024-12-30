@@ -1,26 +1,39 @@
-.loader {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  background-color: rgb(21, 20, 20);
+.loader_container {
   display: grid;
   place-content: center;
+  gap: 10px;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgb(21, 20, 20);
   z-index: 2;
 }
 
-.spin {
-  position: fixed;
+.spiner_container {
   height: 150px;
   width: 150px;
-  top: calc(50% - 85px);
-  left: calc(50% - 75px);
+  position: relative;
+}
+
+.spiner {
+  height: 100%;
+  width: 100%;
   border-radius: 50%;
   border: 10px dotted white;
-  animation: spinning 5s linear infinite;
+  animation: spinning 6s linear infinite;
 }
 
 .eye {
   width: 100px;
+  position: absolute;
+  top: calc(75px - 25px);
+  left: calc(75px - 50px);
+}
+
+.loader_container p {
+  font-weight: bold;
+  text-align: center;
 }
 
 @keyframes spinning {
