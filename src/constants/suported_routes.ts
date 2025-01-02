@@ -1,6 +1,11 @@
-export const SUPORTED_ROUTES = {
+export const SUPPORTED_ROUTES = {
+  HOME: '/',
   PLANETARY: '/app',
   QUIZ: '/quiz',
   BLOG: '/blog',
-  GALLERY: '/gallery'
+}
+
+export const DEVELOPMENT_ROUTES = {
+  GALLERY: '/gallery',
+  TONALLI: '/tonalli'
 }

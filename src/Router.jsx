@@ -22,6 +22,7 @@ import { AztecAstronomyQuiz } from "./components/quizzes/AztecAstronomyQuiz.tsx"
 import Gallery from './components/pages/gallery/Gallery.tsx'
 import { Explorer } from "./components/planetary/explorer/Explorer.tsx"
 import { Loader } from "./components/ui/loader/Loader.tsx"
+import { DEVELOPMENT_ROUTES, SUPPORTED_ROUTES } from "./constants/suported_routes.ts"
 
 function Router () {
   const location = useLocation();
@@ -31,17 +32,15 @@ function Router () {
     <div className="global">
       {!isAppRoute && <Header />}
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/app" element={<App />} />
-          <Route path="/quiz" element={<AztecAstronomyQuiz />} />
+          <Route path={SUPPORTED_ROUTES.HOME} element={<Home />} />
+          <Route path={SUPPORTED_ROUTES.PLANETARY} element={<App />} />
+          <Route path={SUPPORTED_ROUTES.QUIZ} element={<AztecAstronomyQuiz />} />
 
-          <Route path="/loading" element={<Loader />} />
-
-          <Route path="/blog" element={<Blog />} />
+          <Route path={SUPPORTED_ROUTES.BLOG} element={<Blog />} />
           <Route path="/blog/eclipse-solar" element={<EclipseSolar />}/>
           <Route path="/blog/lluvia-de-estrellas" element={<MeteorShower />} />
 
-          <Route path="/gallery" element={<Gallery />} />
+          <Route path={DEVELOPMENT_ROUTES.GALLERY} element={<Gallery />} />
         </Routes>
       {!isAppRoute && <Footer extended={false}/>}
     </div>

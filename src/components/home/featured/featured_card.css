@@ -14,7 +14,7 @@
 .feature_img {
   width: 100%;
   border-radius: 10px;
-  aspect-ratio: 2/3;
+  aspect-ratio: 4/5;
   object-fit: cover;
 }
 

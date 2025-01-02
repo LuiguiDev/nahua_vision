@@ -28,14 +28,18 @@ const DownloadButton: React.FC <DownloadButtonProps> = ({ numArticles }) => {
 
 const Gallery = () => {
   return(
-    <main className="page_container">
-      <h3>Descarga las imagenes de Nahua Vision adaptadas para fondo de pantalle GRATIS</h3>
+    <>
+      <main className="page_container">
 
-      <div className="options">
-        <TrashButton />
-        <DownloadButton numArticles={1} />
-      </div>
-    </main>
+        <h3>Descarga las imagenes de Nahua Vision adaptadas para fondo de pantalle GRATIS</h3>
+
+        <div className="options">
+          <TrashButton />
+          <DownloadButton numArticles={1} />
+        </div>
+
+      </main>
+    </>
   )
 }
 

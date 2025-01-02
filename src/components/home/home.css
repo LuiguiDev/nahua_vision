@@ -44,3 +44,28 @@
   border-radius: 5px;
   color: black;
 }
+
+
+/* from fetrureselectro */
+
+.features_mini {
+  width: 100%;  
+}
+
+.features_mini .images {
+  display: grid;
+  place-content: center;
+  grid-template-columns: repeat(auto-fit, 50px);
+  gap: 15px;
+}
+
+.images img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.feature_selected {
+  border: 2px solid white;
+}
