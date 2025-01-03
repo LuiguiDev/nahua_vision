@@ -1,6 +1,6 @@
 import React from "react";
 // types
-import { featureProps } from "./notification_types";
+import { featureProps } from "./featureProps";
 import { Link } from "react-router-dom";
 //styles
 import './featured_card.css'
@@ -8,6 +8,14 @@ import { DEVELOPMENT_ROUTES, SUPPORTED_ROUTES } from "../../../constants/suporte
 
 
 // COMPONENTS
+const ProximamenteBtn = () => {
+  return(
+    <>
+      Proximamente <i className="fa-solid fa-lock" style={{color: '#000'}}></i>
+    </>
+  )
+}
+
 interface featureCardProps {
   feature: featureProps
   onDevelopment: boolean
@@ -27,10 +35,10 @@ const FeatureCard: React.FC<featureCardProps> = (
         <h3>{feature.title}</h3>
         <p>{feature.description}</p>
         <div className="feature_btns">
-          <button className="feature_btn" disabled={onDevelopment}>
+          <button className={`feature_btn ${onDevelopment ? 'btn_disabled' : ''}`} disabled={onDevelopment}>
             {
               onDevelopment
-              ? 'Proximamnte 🔒'
+              ? <ProximamenteBtn />
               : <Link to={feature.path}>{feature.button}</Link>
             }
           </button>

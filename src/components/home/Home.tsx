@@ -1,21 +1,16 @@
 import React, { useEffect, useRef, useState } from "react"
 import './home.css'
-import { useNews } from "../../hooks/useNews"
-import { Link } from "react-router-dom"
 import LuisCard from "../ui/luis-card/LuisCard"
-import News from "./featured/FeaturedCard"
-import FeatureCard from "./featured/FeaturedCard"
 import Featured from "./featured/FeaturedCard"
-import { featureProps } from "./featured/notification_types"
+import { featureProps } from "./featured/featureProps"
 
-const {news} = useNews()
 const FEATURES = [
   {
     id: 'h-f-1',
     title: 'Planetario Azteca',
     description: 'Conoce los nombres que los aztecas dierion a los astros',
     image: {
-      imgSrc: 'https://i.ibb.co/JcLPxrR/Feature-cover-Planetary-1.webp',
+      imgSrc: 'https://i.ibb.co/dfQnXfb/Feature-cover-Planetary-4-5.webp',
       imgAlt: 'Persona señalando un cielo estrellado, con íconos de los cuerpos celestes Meztli (Luna), Tonatiuh (Sol) y Xolotl (Venus) flotando en el espacio.'
     },
     button: 'Ir al planetario',
@@ -25,7 +20,10 @@ const FEATURES = [
     id: 'h-f-2',
     title: 'Quiz de astronomía Azteca',
     description: 'Prueba tus conocimientos sobre la cultura mexicana',
-    image: {imgSrc:'https://i.ibb.co/McdKvSF/quiz-portada-dalle.webp', imgAlt:''},
+    image: {
+      imgSrc:'https://i.ibb.co/mvxv1zq/quiz.webp',
+      imgAlt:''
+    },
     button: 'Tomar quiz',
     path: '/quiz'
   },
@@ -33,7 +31,10 @@ const FEATURES = [
     id: 'h-f-3',
     title: 'Fondos de pantalla GRATIS',
     description: 'Descarga los fondos de pantalla diseñados en la cosmovisión prehispánica',
-    image: {imgSrc:'https://i.ibb.co/kyzJqRH/h-f-3.webp', imgAlt:''},
+    image: {
+      imgSrc:'https://i.ibb.co/kyzJqRH/h-f-3.webp',
+      imgAlt:''
+    },
     button: 'Descargar fondos',
     path: '/gallery'
   },
@@ -41,8 +42,22 @@ const FEATURES = [
     id: 'h-f-4',
     title: 'Descubre tu tonal',
     description: 'Tu fecha de nacimiento en el calendario Azteca',
-    image: {imgSrc:'https://i.ibb.co/McdKvSF/quiz-portada-dalle.webp', imgAlt:''},
+    image: {
+      imgSrc:'https://i.ibb.co/QH9HpzB/calendar-feature-cover.webp',
+      imgAlt:''
+    },
     button: 'Ver mi tonal',
+    path: '/tonalli'
+  },
+  {
+    id: 'h-f-5',
+    title: 'Calendario lunar 2025',
+    description: 'Diseñé una imagen para cada luna del año inspirandome en la cosmovisión prehispánica',
+    image: {
+      imgSrc:'https://i.ibb.co/LPckV0X/calendario-lunar-squarecomposition.webp',
+      imgAlt:'La imagen está dividida en 4 secciones cuadrangulares, en cada una hay una imagen de la luna editada para relacionarla a un concepto de la cosmovisión mexicana, puedes aprender más al dar click al botón Ver calendario'
+    },
+    button: 'Ver calendario',
     path: '/tonalli'
   }
 ]
