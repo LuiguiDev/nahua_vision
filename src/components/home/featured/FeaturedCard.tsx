@@ -11,7 +11,7 @@ import { DEVELOPMENT_ROUTES, SUPPORTED_ROUTES } from "../../../constants/suporte
 const ProximamenteBtn = () => {
   return(
     <>
-      Proximamente <i className="fa-solid fa-lock" style={{color: '#000'}}></i>
+      Próximamente <i className="fa-solid fa-lock" style={{color: '#000'}}></i>
     </>
   )
 }
