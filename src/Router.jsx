@@ -27,6 +27,9 @@ import { DEVELOPMENT_ROUTES, SUPPORTED_ROUTES } from "./constants/suported_route
 // test
 import { Ad } from './services/components/Ad.tsx'
 
+const PLACEMENTS = ['tonalli', 'gallery', 'planetary']
+const placement = PLACEMENTS[Math.floor(Math.random() * PLACEMENTS.length)]
+
 function Router () {
   const location = useLocation();
   const isAppRoute = location.pathname.startsWith('/app');
@@ -39,7 +42,7 @@ function Router () {
           <Route path={SUPPORTED_ROUTES.PLANETARY} element={<App />} />
           <Route path={SUPPORTED_ROUTES.QUIZ} element={<AztecAstronomyQuiz />} />
 
-          <Route path="/ad" element={<Ad placement="tonalli" />} />
+          <Route path="/ad" element={<Ad placement={placement} />} />
 
           <Route path={SUPPORTED_ROUTES.BLOG} element={<Blog />} />
           <Route path="/blog/eclipse-solar" element={<EclipseSolar />}/>
