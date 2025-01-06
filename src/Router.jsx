@@ -24,6 +24,9 @@ import { Explorer } from "./components/planetary/explorer/Explorer.tsx"
 import { Loader } from "./components/ui/loader/Loader.tsx"
 import { DEVELOPMENT_ROUTES, SUPPORTED_ROUTES } from "./constants/suported_routes.ts"
 
+// test
+import { Ad } from './services/components/Ad.tsx'
+
 function Router () {
   const location = useLocation();
   const isAppRoute = location.pathname.startsWith('/app');
@@ -35,6 +38,8 @@ function Router () {
           <Route path={SUPPORTED_ROUTES.HOME} element={<Home />} />
           <Route path={SUPPORTED_ROUTES.PLANETARY} element={<App />} />
           <Route path={SUPPORTED_ROUTES.QUIZ} element={<AztecAstronomyQuiz />} />
+
+          <Route path="/ad" element={<Ad placement="tonalli" />} />
 
           <Route path={SUPPORTED_ROUTES.BLOG} element={<Blog />} />
           <Route path="/blog/eclipse-solar" element={<EclipseSolar />}/>

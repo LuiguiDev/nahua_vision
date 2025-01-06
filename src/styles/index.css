@@ -16,9 +16,16 @@ html{
   justify-content: center;
 }
 
+:root {
+  --text-primary: #fff;
+  --text-secondary: #ffffffe7;
+}
+
 h4 {
   color: white;
 }
+
+
 
 button {
   height: 40px;
