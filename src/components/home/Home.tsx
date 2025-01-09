@@ -105,7 +105,7 @@ interface PresentationProps {
   goToBlog: (newState: boolean) => void
 }
 
-const Home: React.FC<PresentationProps> = ({}) => {
+const Home = () => {
   const [index, setIndex] = useState(0)
   const [content, setContent] = useState<featureProps>(FEATURES[index])
   const [selectedFeature, setSelectedFeature] = useState(FEATURES[index].id)

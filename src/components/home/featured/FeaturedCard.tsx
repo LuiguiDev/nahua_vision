@@ -53,11 +53,7 @@ const Featured = (feature : featureProps) => {
   const onDevelopment = Object.values(DEVELOPMENT_ROUTES).includes(feature.path)
 
   return (
-    <div className="featured_container">
-      <div className="fature_carousel">
-        <FeatureCard feature={feature} onDevelopment={onDevelopment}/>  
-      </div>
-    </div>
+    <FeatureCard feature={feature} onDevelopment={onDevelopment}/>  
   )
 }
 
