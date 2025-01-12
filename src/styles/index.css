@@ -25,7 +25,17 @@ h4 {
   color: white;
 }
 
+.global {
+  width: 100vw;
+  max-width: 450px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 
+  background-color: #1d1d1b;
+}
 
 button {
   height: 40px;
@@ -38,17 +48,6 @@ button {
   font-weight: 700;
 }
 
-.global {
-  width: 100%;
-  max-width: 450px;
-  min-height: 100vh;
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-
-  background-color: #1d1d1b;
-}
 
 .logo {
   width: 35px;

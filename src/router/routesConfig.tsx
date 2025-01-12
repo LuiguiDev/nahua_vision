@@ -3,6 +3,7 @@ import Home from "../components/home/Home";
 import { AztecAstronomyQuiz } from "../components/quizzes/AztecAstronomyQuiz";
 import Planetary from "../components/planetary/Planetary";
 import Page404 from "../components/pages/errors/404/page404";
+import TermsAndConditions from "../components/pages/legal/TermsAndConditions";
 
 const routesConfig = [
   {
@@ -19,6 +20,11 @@ const routesConfig = [
       path: '/quiz',
       element: <AztecAstronomyQuiz />,
       title: 'Quiz de Astronomía',
+  },
+  {
+    title: 'Terminos y condiciones',
+    path: '/terminos-y-condiciones',
+    element: <TermsAndConditions />,
   },
   {
       path: '*',
