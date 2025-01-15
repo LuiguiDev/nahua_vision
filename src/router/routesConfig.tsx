@@ -4,6 +4,7 @@ import { AztecAstronomyQuiz } from "../components/quizzes/AztecAstronomyQuiz";
 import Planetary from "../components/planetary/Planetary";
 import Page404 from "../components/pages/errors/404/page404";
 import TermsAndConditions from "../components/pages/legal/TermsAndConditions";
+import MoonCalendar from "../components/pages/moon calendar/MoonCalendar";
 
 const routesConfig = [
   {
@@ -25,6 +26,11 @@ const routesConfig = [
     title: 'Terminos y condiciones',
     path: '/terminos-y-condiciones',
     element: <TermsAndConditions />,
+  },
+  {
+    title: 'Calendario lunar 2025',
+    path: '/moon-calendar',
+    element: <MoonCalendar />
   },
   {
       path: '*',

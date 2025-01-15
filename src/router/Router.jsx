@@ -27,7 +27,7 @@ function Router () {
   const isAppRoute = location.pathname.startsWith('/app');
   
   return(
-    <div className="global">
+    <>
       {!isAppRoute && <Header />}
         <Routes>
           {
@@ -45,7 +45,7 @@ function Router () {
           <Route path={DEVELOPMENT_ROUTES.GALLERY} element={<Gallery />} />
         </Routes>
       {!isAppRoute && <Footer extended={false}/>}
-    </div>
+    </>
   )
 }
 
