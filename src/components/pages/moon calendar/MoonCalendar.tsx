@@ -1,5 +1,7 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import './moon_calendar.css'
+import { Navigate, useNavigate, useParams } from "react-router-dom"
+import { flushSync } from "react-dom"
 
 interface MoonType {
   id: string
@@ -36,6 +38,47 @@ interface MoonCardProps {
   moon: MoonType
 }
 
+export const MoonFullPage = () => {
+  const [moon, setMoon] = useState<MoonType>({date: '', description: '', id: '', image: {alt: '', src: ''}, title: ''})
+  const {date, description, id, image, title} = moon
+  const params = useParams()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const found = MOONS.find((e) => e.id === params.moonId);
+    if (found) {
+      document.startViewTransition(() => {
+        flushSync(() => {
+          setMoon(found);
+        })
+      })
+    }
+  }, []);
+
+  return(
+    <div className="page_container">
+      <div className="moon_full_page" style={{viewTransitionName: `${id}`}} >
+        <div className="moon_dialog">
+          <p
+            onClick={() => {
+              document.startViewTransition(() => {
+                navigate('/moon-calendar');
+              });
+            }}
+          >
+            Cerrar
+          </p>
+          <img src={image.src} alt={image.alt} style={{viewTransitionName: `${id}-image`}}/>
+          <div className="moon_dialog_text">
+            <h3>{title}</h3>
+            <h4>{date}</h4>
+            <p>{description}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 const Moon: React.FC<MoonCardProps> = ({moon}) => {
   const [isExtended, setIsExtended] = useState<boolean>(false)
@@ -63,22 +106,23 @@ const Moon: React.FC<MoonCardProps> = ({moon}) => {
     // Retorna la fecha en el formato deseado
     return `${parseInt(day, 10)} de ${monthName} de ${year}`;
   }  
+  const navigate = useNavigate()
 
   return (
-    <div className="moon_card" onClick={() => manageSetIsExtended(true)}>
-      <img src={image.src} alt={image.alt} />
+    <div
+      className="moon_card"
+      onClick={() => {
+        document.startViewTransition(() => {
+          navigate(`/moon-calendar/${id}`);
+        });
+      }}
+      style={{viewTransitionName: `${id}`}} 
+    >
+      <img src={image.src} alt={image.alt} style={{viewTransitionName: `${id}-image`}} />
 
       <div className="moon_about">
         <h3>{title}</h3>
         <p>{formatDate(date)}</p>
-
-        {
-          isExtended &&
-          <>
-            <p>{description}</p>
-            <p onClick={() => setIsExtended(false)}><small>cerrar</small></p>
-          </>
-        }
       </div>
     </div>
   )

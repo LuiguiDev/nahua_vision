@@ -1,10 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom/client'
 import './styles/index.css'
 import { BrowserRouter } from 'react-router-dom'
 import Router from './router/Router.jsx'
-
-const Main = () => <h1>Hello</h1>
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>

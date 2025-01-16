@@ -32,11 +32,11 @@ const routesConfig = [
     path: '/moon-calendar',
     element: <MoonCalendar />
   },
-  {
+/*   {
       path: '*',
       element: <Page404 />,
       title: '404 - No Encontrado',
   },
-];
+ */];
 
 export default routesConfig;

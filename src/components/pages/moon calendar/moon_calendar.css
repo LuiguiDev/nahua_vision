@@ -16,3 +16,24 @@
   border-radius: 10px;
   box-shadow: 5px 5px 10px rgba(16, 16, 16, 0.655);
 }
+
+/* from moon calendar full page */
+.moon_full_page {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.429);
+  display: grid;
+  place-content: center;
+}
+
+.moon_dialog {
+  width: 300px;
+}
+
+.moon_dialog_text {
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+}

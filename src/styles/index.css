@@ -15,6 +15,7 @@ html, body{
 #root {
   --text-primary: #fff;
   --text-secondary: #ffffffe7;
+  --background-color: #1d1d1b;
 
   width: 100vw;
   max-width: 450px;
@@ -103,4 +104,27 @@ button {
   border-radius: 10px;
 
   font-weight: bold;
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+:root {
+  --view-transition-duration: 0.9s;
+}
+
+.moon_card, .moon_full_page {
+  transition: transform var(--view-transition-duration) ease, opacity var(--view-transition-duration) ease;
+}
+
+.moon_card[view-transition-name] {
+  /* Opcional: define cómo debe verse al iniciar/terminar */
+  opacity: 0.5;
+  transform: scale(0.95);
+}
+
+.moon_full_page[view-transition-name] {
+  opacity: 1;
+  transform: scale(1);
 }
