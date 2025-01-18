@@ -57,12 +57,14 @@ export const MoonFullPage = () => {
 
   return(
     <div className="page_container">
-      <div className="moon_full_page" style={{viewTransitionName: `${id}`}} >
+      <div className="moon_full_page" >
         <div className="moon_dialog">
           <p
             onClick={() => {
               document.startViewTransition(() => {
-                navigate('/moon-calendar');
+                flushSync(() => {                  
+                  navigate('/moon-calendar');
+                })
               });
             }}
           >
@@ -83,12 +85,6 @@ export const MoonFullPage = () => {
 const Moon: React.FC<MoonCardProps> = ({moon}) => {
   const [isExtended, setIsExtended] = useState<boolean>(false)
   const { date, description, id, image, title } = moon
-
-  function manageSetIsExtended(newState:boolean) {
-    if (!isExtended) {
-      setIsExtended(newState)      
-    }
-  }
   
   function formatDate(dateStr: string) {
     // Divide el string de la fecha
@@ -113,10 +109,11 @@ const Moon: React.FC<MoonCardProps> = ({moon}) => {
       className="moon_card"
       onClick={() => {
         document.startViewTransition(() => {
-          navigate(`/moon-calendar/${id}`);
+          flushSync(() => {
+            navigate(`/moon-calendar/${id}`);
+          })
         });
       }}
-      style={{viewTransitionName: `${id}`}} 
     >
       <img src={image.src} alt={image.alt} style={{viewTransitionName: `${id}-image`}} />
 

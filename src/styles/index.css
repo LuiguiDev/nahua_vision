@@ -106,6 +106,8 @@ button {
   font-weight: bold;
 }
 
+/* page transitions */
+
 @view-transition {
   navigation: auto;
 }
