@@ -1,10 +1,5 @@
 import { Route, Routes, useLocation } from "react-router-dom"
 
-// Blog imports
-import Blog from "../components/blog/Blog.tsx"
-import MeteorShower from "../components/blog/Articles/MeteorShower"
-import EclipseSolar from "../components/blog/Articles/EclipseSolar"
-
 // Layout imports
 import { Header } from "../components/layout/header/Header"
 import { Footer } from "../components/layout/footer/Footer"
@@ -58,10 +53,6 @@ function Router () {
           }
 
           <Route path="/ad" element={<Ad placement={placement} />} />
-
-          <Route path={SUPPORTED_ROUTES.BLOG} element={<Blog />} />
-          <Route path="/blog/eclipse-solar" element={<EclipseSolar />}/>
-          <Route path="/blog/lluvia-de-estrellas" element={<MeteorShower />} />
 
           <Route path={DEVELOPMENT_ROUTES.GALLERY} element={<Gallery />} />
 

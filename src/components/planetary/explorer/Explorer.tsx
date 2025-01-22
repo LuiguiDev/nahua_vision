@@ -1,7 +1,7 @@
 import './explorer.css'
 import { useEffect, useRef, useState } from "react"
 import { useAstros } from "../../../hooks/useAstros"
-import { UUIDtype, astro, astros } from "../../../types"
+import { UUIDtype, astro, astros } from "../../../types/types"
 import React from "react"
 import { Line } from "@react-three/drei"
 

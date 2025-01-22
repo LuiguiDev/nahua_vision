@@ -1,6 +1,0 @@
-const AztecCalendar = () => {
-  return (
-    <>
-    </>
-  )
-}
