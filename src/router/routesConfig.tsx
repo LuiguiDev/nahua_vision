@@ -5,6 +5,7 @@ import Planetary from "../components/planetary/Planetary";
 import Page404 from "../components/pages/errors/404/page404";
 import TermsAndConditions from "../components/pages/legal/TermsAndConditions";
 import MoonCalendar from "../components/pages/moon calendar/MoonCalendar";
+import Tonalli from "../components/pages/tonalli/Tonalli";
 
 const routesConfig = [
   {
@@ -32,11 +33,16 @@ const routesConfig = [
     path: '/moon-calendar',
     element: <MoonCalendar />
   },
-/*   {
+  {
+    title: 'Conversor de fechas',
+    path: '/tonalli',
+    element: <Tonalli />
+  },
+  {
       path: '*',
       element: <Page404 />,
       title: '404 - No Encontrado',
   },
- */];
+];
 
 export default routesConfig;
