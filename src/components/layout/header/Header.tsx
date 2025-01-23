@@ -33,6 +33,7 @@ export const Header = () => {
 
   return (
     <header>
+      <img src="./public/img/cover.png" style={{position: 'fixed', top: '-300px'}} /> 
       <Link to={'/'}>
         <img src="https://i.ibb.co/HY4Jgph/favicon.png" alt="nahua vision logo" className="logo" />
       </Link>
