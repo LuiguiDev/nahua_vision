@@ -18,7 +18,6 @@ const placement = PLACEMENTS[Math.floor(Math.random() * PLACEMENTS.length)]
 import routesConfig from './routesConfig.tsx'
 import { MoonFullPage } from "../components/pages/moon calendar/MoonCalendar.tsx"
 import { useEffect } from "react"
-import { Helmet } from "react-helmet-async"
 
 function Router () {
   const location = useLocation();
@@ -49,13 +48,7 @@ function Router () {
         <Routes>
           {
             routesConfig.map(({path, element}) => (
-              <Helmet>
-                 <meta name="description" content="Una guía para explorar el universo a través de los ojos de los antiguos mexicanos" />
-                  <meta property="og:title" content="Nahua Vision" />
-                  <meta property="og:description" content="Una guía para explorar el universo a través de los ojos de los antiguos mexicanos" />
-                  <meta property="og:image" content="./public/img/cover.png" />
-                <Route path={path} element={element} key={path}/>
-              </Helmet>
+              <Route path={path} element={element} key={path}/>
             ))
           }
 
