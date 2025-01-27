@@ -1,4 +1,4 @@
-import React from "react";
+import React, { JSXElementConstructor } from "react";
 import Home from "../components/home/Home";
 import { AztecAstronomyQuiz } from "../components/quizzes/AztecAstronomyQuiz";
 import Planetary from "../components/planetary/Planetary";
@@ -6,8 +6,16 @@ import Page404 from "../components/pages/errors/404/page404";
 import TermsAndConditions from "../components/pages/legal/TermsAndConditions";
 import MoonCalendar from "../components/pages/moon calendar/MoonCalendar";
 import Tonalli from "../components/pages/tonalli/Tonalli";
+import MDXBlogPost from "../components/blog/MDXBlogPost";
 
-const routesConfig = [
+
+interface RouteType {
+  path: string
+  element: React.JSX.Element
+  title: string
+}
+
+const routesConfig: RouteType[] = [
   {
       path: '/',
       element: <Home />,
@@ -37,6 +45,11 @@ const routesConfig = [
     title: 'Conversor de fechas',
     path: '/tonalli',
     element: <Tonalli />
+  },
+  {
+    title: 'Blog',
+    element: <MDXBlogPost />,
+    path: '/Blog/:slug'
   },
   {
       path: '*',
