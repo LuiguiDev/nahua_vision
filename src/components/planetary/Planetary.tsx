@@ -18,6 +18,20 @@ import { Loader } from '../ui/loader/Loader'
 // custome hooks
 import { useAstros } from '../../hooks/useAstros'
 
+const Seo = () => {
+  return (
+    <>
+      <title>Nahua Vision | Planetario azteca </title>
+      <meta name="description" content="Navega el cosmos desde la perspectiva de la cosmovisión nahua." />
+
+      {/* Open Graph data */}
+      <meta name="og:description" content="Navega el cosmos desde la perspectiva de la cosmovisión nahua." />
+      <meta name="og:image" content="https://i.ibb.co/zfJhDfk/planetary-og.png" />
+      <meta name="og:title" content="Nahua Vision | Planetario azteca"/>
+    </>
+  )
+}
+
 function App () {
   const [touchStart, setTouchStart] = useState({x:0, y:0})
   const [movement, setMovement] = useState({x:0, y:0})
@@ -64,40 +78,44 @@ function App () {
   )
   
   return(
-    <div 
-      className="app"
-      style={{height: `calc(var(--vh, 1vh) * 100)`}}
-    >
-      <AppHeader />
-      <Suspense fallback={<Loader/>}>
-        <Explorer manageSetLookAt={manageSetLookAt} />
-        <Canvas
-          onTouchStart={(e) => handleTouchStart(e)}
-          onTouchMove={(e) => handleTouchMove(e)}
-        >
-          <FPV cameraRef={cameraRef} movement={movement} lookAt={lookAt} />
-          <Environment 
-            files={'.././img/tetl 2k.hdr'}
-            background={true}
-            blur={0.02}
-          />
-          <Physics>
-            {
-              debuggin &&
-              <>
-                {data.map(element => (
-                  <GTFLModel
-                    data={element}
-                    closeLoader={closeLoader}
-                    key={crypto.randomUUID()}
-                  />
-                ))}
-              </>
-            }
-          </Physics>
-        </Canvas>
-      </Suspense>
-    </div>
+    <>
+      <Seo />
+
+      <div 
+        className="app"
+        style={{height: `calc(var(--vh, 1vh) * 100)`}}
+      >
+        <AppHeader />
+        <Suspense fallback={<Loader/>}>
+          <Explorer manageSetLookAt={manageSetLookAt} />
+          <Canvas
+            onTouchStart={(e) => handleTouchStart(e)}
+            onTouchMove={(e) => handleTouchMove(e)}
+          >
+            <FPV cameraRef={cameraRef} movement={movement} lookAt={lookAt} />
+            <Environment 
+              files={'.././img/tetl 2k.hdr'}
+              background={true}
+              blur={0.02}
+            />
+            <Physics>
+              {
+                debuggin &&
+                <>
+                  {data.map(element => (
+                    <GTFLModel
+                      data={element}
+                      closeLoader={closeLoader}
+                      key={crypto.randomUUID()}
+                    />
+                  ))}
+                </>
+              }
+            </Physics>
+          </Canvas>
+        </Suspense>
+      </div>
+    </>
   )
 }
 
