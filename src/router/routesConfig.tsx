@@ -7,6 +7,7 @@ import TermsAndConditions from "../components/pages/legal/TermsAndConditions";
 import MoonCalendar from "../components/pages/moon calendar/MoonCalendar";
 import Tonalli from "../components/pages/tonalli/Tonalli";
 import MDXBlogPost from "../components/blog/MDXBlogPost";
+import MDXBlog from "../components/blog/MDXBlog";
 
 
 interface RouteType {
@@ -48,8 +49,13 @@ const routesConfig: RouteType[] = [
   },
   {
     title: 'Blog',
+    element: <MDXBlog />,
+    path: '/blog'
+  },
+  {
+    title: 'Blog Post',
     element: <MDXBlogPost />,
-    path: '/Blog/:slug'
+    path: '/blog/:slug'
   },
   {
       path: '*',

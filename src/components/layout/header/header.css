@@ -12,7 +12,8 @@ header {
   z-index: 1000;
 }
 
-header h2 {
+header h1 {
+  font-size: 22px;
   font-weight: bold;
   color: white;
 }
