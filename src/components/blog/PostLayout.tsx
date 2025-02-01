@@ -33,10 +33,10 @@ export const PostLayout: React.FC<PostLayoutProps> = ({ children, metadata }) =>
 
 
   return (
-    <article>
+    <article className='flex flex-col gap-8'>
       <div>
         <h1 className="text-4xl font-bold mb-4">{metadata.title}</h1>
-        <div className="text-gray-600 mb-4">{formatedDate}</div>
+        <div className="text-gray-300 mb-4">{formatedDate}</div>
         {metadata.tags && (
           <div className="flex gap-2 mb-4">
             {metadata.tags.map(tag => (

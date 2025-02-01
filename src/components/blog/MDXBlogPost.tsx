@@ -16,10 +16,10 @@ const BlogPost: React.FC = () => {
   if (!metadata) {
     navigate('/404');
     return null;
-  }    
+  }
 
   // Importación dinámica del post usando import.meta.glob
-  const modules = import.meta.glob('./Articles/aztec-calendar.mdx', {eager: true});
+  const modules = import.meta.glob('./content/aztec-calendar.mdx', {eager: true});
 
   const Post = React.lazy(async () => {
     if (!slug) throw new Error('Slug not found');
