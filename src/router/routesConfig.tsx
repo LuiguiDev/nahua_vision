@@ -8,6 +8,7 @@ import MoonCalendar from "../components/pages/moon calendar/MoonCalendar";
 import Tonalli from "../components/pages/tonalli/Tonalli";
 import MDXBlogPost from "../components/blog/MDXBlogPost";
 import MDXBlog from "../components/blog/MDXBlog";
+import Nahuatl from "../components/nahuatl/Nahuatl";
 
 
 interface RouteType {
@@ -17,6 +18,11 @@ interface RouteType {
 }
 
 const routesConfig: RouteType[] = [
+  {
+    path: '*',
+    element: <Page404 />,
+    title: '404 - No Encontrado',
+  },
   {
       path: '/',
       element: <Home />,
@@ -58,10 +64,10 @@ const routesConfig: RouteType[] = [
     path: '/blog/:slug'
   },
   {
-      path: '*',
-      element: <Page404 />,
-      title: '404 - No Encontrado',
-  },
+    title: 'Aprende nahuatl',
+    path: '/nahuatl',
+    element: <Nahuatl />
+  }
 ];
 
 export default routesConfig;
