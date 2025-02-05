@@ -31,6 +31,36 @@ const MOONS: MoonType[] = [
     title: 'Luna de Iztaccíhuatl',
     date: '12-02-2025',
     description: ''
+  },
+  {
+    id: 'harvest-moon',
+    image: {
+      src: 'https://i.ibb.co/nG8F8xg/harvest-moon-4-5.png',
+      alt: 'Fotografía de la luna con un recorte de arte en papel otomí que representa a los dioses de la milpa'
+    },
+    title: 'Luna de la cosecha',
+    date: '07-10-2025',
+    description: 'El término "harvest moon" (luna de la cosecha) se refiere a la primera luna llena del otoño en el hemisferio norte. Esta luna llena recibe este nombre porque tradicionalmente proporcionaba luz adicional durante la noche, lo que permitía a los agricultores cosechar sus cultivos después del atardecer. \n Esta composición es un guiño a ese concepto, pues la luna está rodeada de un círculo de papel amate con representaciones de los dioses de la agricultura, arte tradicional de la cultura otomí.'
+  },
+  {
+    id: 'blue-moon',
+    image: {
+      src: 'https://i.ibb.co/XkLF1hT0/blue-moon-4-5.webp',
+      alt: ''
+    },
+    title: 'Luna azul',
+    date: '13-04-2025',
+    description: 'En esta imagen convergen dos mundos, dos significados: El glifo de Meztli (luna en náhuatl) y la luna azul. Aquí se unen los hilos de dos culturas antaño distantes en un sincretismo que aumenta mi estima por ambas culturas.'
+  },
+  {
+    id: 'first-moon',
+    image: {
+      src: 'https://i.ibb.co/ptrrjMD/luna-en-vasija-4-5.jpg',
+      alt: ''
+    },
+    title: 'Luna vasija',
+    date: '09-08-2025',
+    description: 'Los nahuas creían que la luna era como una vasija llena de pulque que cada noche vertía un poco de su contenido sobre la tierra hasta quedar vacía, así se explicaban las fases lunares.'
   }
 ]
 
