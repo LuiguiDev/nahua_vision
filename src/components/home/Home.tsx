@@ -66,8 +66,8 @@ const FEATURES = [
 const ShortPitch = () => {
   return (
     <div className="header_text">
-      <p><strong>¿Qué es <span translate="no">nahua vision?</span></strong></p>
-      <p>Una guía para explorar el universo a través de los ojos de los antiguos mexicanos</p>
+      <p className="text-white"><strong>¿Qué es <span translate="no">nahua vision?</span></strong></p>
+      <p className="text-white">Una guía para explorar el universo a través de los ojos de los antiguos mexicanos</p>
       <LuisCard />
     </div>
   )
