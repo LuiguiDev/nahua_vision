@@ -5,7 +5,7 @@ import './ad.css';
 
 // TYPES
 export interface AdProps {
-  placement: 'gallery'
+  placement: string
   className?: string;
 }
 interface AdContent {

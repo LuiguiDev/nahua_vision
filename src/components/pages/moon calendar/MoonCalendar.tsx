@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import './moon_calendar.css'
 import { Navigate, useNavigate, useParams } from "react-router-dom"
 import { flushSync } from "react-dom"
+import { Ad } from "../../../services/components/Ad"
 
 interface MoonType {
   id: string
@@ -169,6 +170,7 @@ const MoonCalendar = ({  }) => {
           ))
         }
       </main>
+      <Ad placement="moonCalendar"/>
     </div>
   )
 }

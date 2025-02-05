@@ -91,7 +91,18 @@ const adsDatabase: Record<string, AdContent[]> = {
       sponsorUrl: "https://ejemplo.com/saberes",
       weight: 2
     }
-  ] 
+  ],
+  moonCalendar : [
+    {
+      id: "ocelote-querido-quetzalcoatl",
+      title: "Querido Quetzalcóatl",
+      description: "Descubre 'Querido Quetzalcóatl', una novela que te sumergirá en una sátira fantástica sobre la cultura y tradiciones ancestrales.",
+      ctaText: "Más información",
+      ctaUrl: "https://ocelote.mx/producto/querido-quetzalcoatl/",
+      sponsorName: "Editorial Ocelotl",
+      sponsorUrl: "https://ocelote.mx/"
+    }
+  ]
 };
 
 export const useAds = () => {
