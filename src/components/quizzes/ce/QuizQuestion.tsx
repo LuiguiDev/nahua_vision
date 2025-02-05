@@ -73,7 +73,7 @@ const QuizQuestion: React.FC<QuizQuestionProps> = ({
         </div>
         </Suspense>
 
-      <h3 className="question_statemetn">{question}</h3>
+      <h3 className="question_statemetn text-white">{question}</h3>
       <div className="options_container">
         {options.map((option) => (
          <button

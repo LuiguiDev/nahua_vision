@@ -87,7 +87,7 @@ export const AztecAstronomyQuiz = () => {
       return(
         <div className='quiz_welcome'>
           {/* presentation image */}
-          <h3>Bienvenido al quiz de astronomía azteca</h3>
+          <h3 className='text-white'>Bienvenido al quiz de astronomía azteca</h3>
           <img src='https://i.ibb.co/McdKvSF/quiz-portada-dalle.webp' />
           <button className='question_option' onClick={handleStartQuiz}>Comenzar quiz</button>
         </div>
@@ -101,7 +101,7 @@ export const AztecAstronomyQuiz = () => {
 
   return (
     <div className="page_container" >
-      <h2>Quiz de astronomía azteca</h2>
+      <h2 className='text-white'>Quiz de astronomía azteca</h2>
       {renderQuizContent()}
     </div>
   );
