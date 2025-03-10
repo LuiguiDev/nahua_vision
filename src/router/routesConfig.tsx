@@ -67,6 +67,11 @@ const routesConfig: RouteType[] = [
     title: 'Aprende nahuatl',
     path: '/nahuatl',
     element: <Nahuatl />
+  },
+  {
+    title: 'Palabra del día',
+    path: '/nahuatl/:slug',
+    element: <h1>Palabra del día</h1>
   }
 ];
 

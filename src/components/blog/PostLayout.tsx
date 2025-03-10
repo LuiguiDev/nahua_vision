@@ -31,7 +31,6 @@ export const PostLayout: React.FC<PostLayoutProps> = ({ children, metadata }) =>
 
   const formatedDate = formatDate(metadata.date)
 
-
   return (
     <article className='flex flex-col gap-8'>
       <div>

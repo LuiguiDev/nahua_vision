@@ -100,7 +100,8 @@ const adsDatabase: Record<string, AdContent[]> = {
       ctaText: "Más información",
       ctaUrl: "https://ocelote.mx/producto/querido-quetzalcoatl/",
       sponsorName: "Editorial Ocelotl",
-      sponsorUrl: "https://ocelote.mx/"
+      sponsorUrl: "https://ocelote.mx/",
+      imageUrl: "https://m.media-amazon.com/images/I/81uE8a16alL._SL1500_.jpg"
     }
   ]
 };

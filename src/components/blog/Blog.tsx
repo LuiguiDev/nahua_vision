@@ -26,8 +26,6 @@ const Blog: React.FC<BlogProps> = ({article_path}) => {
   return(
     <>
       <main style={{display: "flex"}}>
-        
-
         <ul className="articles_list">
           {
           articles.map((a, i) => (

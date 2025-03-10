@@ -43,19 +43,20 @@ export const Ad: React.FC<AdProps> = ({ placement, className = '' }) => {
   return (
     <div className={`ad-container ${className}`} data-placement={placement}>
       <div className="ad-content">
-        {adContent.imageUrl && (
-          <img 
-            src={adContent.imageUrl} 
-            alt={`Anuncio de ${adContent.sponsorName}`} 
-            className="ad-image"
-          />
-        )}
         <h3 className="ad-title">{adContent.title}</h3>
         <p className="ad-description">{adContent.description}</p>
         <button onClick={handleClick} className="ad-cta">
           {adContent.ctaText}
         </button>
         <div className="ad-sponsor">
+          {adContent.imageUrl && (
+            <img 
+              src={adContent.imageUrl} 
+              alt={`Anuncio de ${adContent.sponsorName}`} 
+              className="ad-image"
+            />
+          )}
+
           <span>Presentado por </span>
           <a 
             href={adContent.sponsorUrl}

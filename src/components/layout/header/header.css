@@ -18,6 +18,15 @@ header h1 {
   color: white;
 }
 
+header h1 .main_color {
+  color: var(--main-color);
+}
+
+.s_color {
+  color: var(--secondary-color);
+  opacity: .7;
+}
+
 i {
   height: fit-content;
   font-size: 1.4rem;

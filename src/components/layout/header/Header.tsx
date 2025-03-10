@@ -36,7 +36,9 @@ export const Header = () => {
       <Link to={'/'}>
         <img src="https://i.ibb.co/HY4Jgph/favicon.png" alt="nahua vision logo" className="logo" />
       </Link>
-      <h1 translate="no">Nahua vision</h1>
+      <h1 translate="no">
+        <span className="main_color">Nahua</span> <span className="s_color">Vision</span>
+      </h1>
       <i 
         className={isMenuOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars"}
         style={{color: '#ffffff'}}

@@ -1,7 +1,7 @@
 main {
   display: flex;
   flex: 1;
-  background-color: #1d1d1b;
+  background-color: var(--background-color);
 }
 
 ul {
