@@ -9,6 +9,7 @@ import Tonalli from "../components/pages/tonalli/Tonalli";
 import MDXBlogPost from "../components/blog/MDXBlogPost";
 import MDXBlog from "../components/blog/MDXBlog";
 import Nahuatl from "../components/nahuatl/Nahuatl";
+import Context from "../components/pages/context provider/Context";
 
 
 interface RouteType {
@@ -72,6 +73,11 @@ const routesConfig: RouteType[] = [
     title: 'Palabra del día',
     path: '/nahuatl/:slug',
     element: <h1>Palabra del día</h1>
+  },
+  {
+    title: 'Sobre Nahua Vision',
+    path: '/about',
+    element: <Context />
   }
 ];
 

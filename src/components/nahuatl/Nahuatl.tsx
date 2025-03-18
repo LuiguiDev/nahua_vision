@@ -9,7 +9,7 @@ interface WordObjType {
 
 const WordOfTheDay: React.FC<WordObjType> = (wordObj) => {
   function shareWord () {
-
+    
   }
 
   return(
