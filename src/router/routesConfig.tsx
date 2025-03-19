@@ -20,11 +20,6 @@ interface RouteType {
 
 const routesConfig: RouteType[] = [
   {
-    path: '*',
-    element: <Page404 />,
-    title: '404 - No Encontrado',
-  },
-  {
       path: '/',
       element: <Home />,
       title: 'Inicio',
@@ -38,11 +33,6 @@ const routesConfig: RouteType[] = [
       path: '/quiz',
       element: <AztecAstronomyQuiz />,
       title: 'Quiz de Astronomía',
-  },
-  {
-    title: 'Terminos y condiciones',
-    path: '/terminos-y-condiciones',
-    element: <TermsAndConditions />,
   },
   {
     title: 'Calendario lunar 2025',
@@ -78,6 +68,16 @@ const routesConfig: RouteType[] = [
     title: 'Sobre Nahua Vision',
     path: '/about',
     element: <Context />
+  },
+  {
+    title: 'Terminos y condiciones',
+    path: '/terminos-y-condiciones',
+    element: <TermsAndConditions />,
+  },
+  {
+    path: '*',
+    element: <Page404 />,
+    title: '404 - No Encontrado',
   }
 ];
 
