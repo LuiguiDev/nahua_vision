@@ -9,7 +9,7 @@ import Tonalli from "../components/pages/tonalli/Tonalli";
 import MDXBlogPost from "../components/blog/MDXBlogPost";
 import MDXBlog from "../components/blog/MDXBlog";
 import Nahuatl from "../components/nahuatl/Nahuatl";
-import Context from "../components/pages/context provider/Context";
+import About from "../components/pages/about/About";
 
 
 interface RouteType {
@@ -67,7 +67,7 @@ const routesConfig: RouteType[] = [
   {
     title: 'Sobre Nahua Vision',
     path: '/about',
-    element: <Context />
+    element: <About />
   },
   {
     title: 'Terminos y condiciones',
