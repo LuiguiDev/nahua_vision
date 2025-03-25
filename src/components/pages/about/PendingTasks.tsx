@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 
 type Priority = 'Alta' | 'Media' | 'Baja';
 type Category = 'Desarrollo' | 'Diseño' | 'Contenido' | 'Infraestructura';
-
 interface Task {
   id: number;
   title: string;
@@ -16,6 +15,12 @@ interface Task {
 
 const PendingTasks = () => {
   const [activeFilter, setActiveFilter] = useState<Category | 'Todas'>('Todas');
+
+  function manageSetCategory(newCategory:Category) {
+    setActiveFilter(newCategory)
+    console.log(`New Category: ${newCategory}`)
+    console.log(activeFilter)
+  }
   
   const tasks: Task[] = [
     {
@@ -105,7 +110,7 @@ const PendingTasks = () => {
       {/* Category Filters */}
       <div className="mb-8 flex flex-wrap gap-2">
         <button 
-          onClick={() => setActiveFilter('Todas')}
+          onClick={() =>setActiveFilter('Todas')}
           className={`px-4 py-2 rounded-md ${
             activeFilter === 'Todas' 
               ? 'bg-[#FF9A00] text-white' 
@@ -118,11 +123,11 @@ const PendingTasks = () => {
         {categories.map(category => (
           <button 
             key={category}
-            onClick={() => setActiveFilter(category)}
+            onClick={() => manageSetCategory(category)}
             className={`px-4 py-2 rounded-md ${
-              activeFilter === category 
+              activeFilter === category
                 ? 'bg-[#FF9A00] text-white' 
-                : 'bg-[#C4C7FF]/10 hover:bg-[#C4C7FF]/20'
+                : 'bg-[#C4C7FF]/10 '
             }`}
           >
             {category}
