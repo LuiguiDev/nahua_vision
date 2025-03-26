@@ -10,6 +10,7 @@ import MDXBlogPost from "../components/blog/MDXBlogPost";
 import MDXBlog from "../components/blog/MDXBlog";
 import Nahuatl from "../components/nahuatl/Nahuatl";
 import About from "../components/pages/about/About";
+import Gallery from "../components/pages/gallery/Gallery";
 
 
 interface RouteType {
@@ -58,6 +59,11 @@ const routesConfig: RouteType[] = [
     title: 'Aprende nahuatl',
     path: '/nahuatl',
     element: <Nahuatl />
+  },
+  {
+    title: 'Fondos de pantalla',
+    path: '/gallery',
+    element: <Gallery />
   },
   {
     title: 'Palabra del día',

@@ -3,9 +3,9 @@ export const SUPPORTED_ROUTES = {
   PLANETARY: '/app',
   QUIZ: '/quiz',
   BLOG: '/blog',
+  GALLERY: '/gallery',
 }
 
 export const DEVELOPMENT_ROUTES = {
-  GALLERY: '/gallery',
   TONALLI: '/tonalli'
 }
