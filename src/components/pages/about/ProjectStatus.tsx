@@ -20,16 +20,15 @@ const ProjectStatus = () => {
     },
     {
       name: 'Quiz de Astronomía Azteca',
-      progress: 40,
+      progress: 60,
       details: 'Base de preguntas creada. Pendiente: Sistema de puntuación e interfaz interactiva.'
     }
   ];
 
   const currentMilestones = [
-    'Lanzamiento de versión beta del Planetario Virtual (Abril 2025)',
-    'Implementación del sistema de cálculo de Tonalli (Mayo 2025)',
-    'Desarrollo de módulos de aprendizaje de náhuatl (Junio 2025)',
-    'Integración de notificaciones basadas en ubicación (Julio 2025)'
+    'Lanzamiento de versión beta del Planetario Virtual (Abril 2023)',
+    'Lanzamiento del primer quiz de astronomía azteca (Noviembre 2024)',
+    'Galería de fondos de pantalla (Marzo 2025)',
   ];
 
   return (

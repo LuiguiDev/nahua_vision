@@ -25,12 +25,12 @@ const PendingTasks = () => {
   const tasks: Task[] = [
     {
       id: 1,
-      title: 'Completar implementación de Three.js para modelos 3D de glifos',
-      description: 'Integrar modelos 3D interactivos para Meztli, Tonatiuh y Citlalin Popoca en el planetario virtual.',
+      title: 'Templo mayor con realidad virtual',
+      description: 'Hacer un modelo 3D del templo mayor y desarrollar la app-web de realidad virtual con webGL con el fin de que los usuarios comprendan de las ruinas del templo mayor',
       priority: 'Alta',
       category: 'Desarrollo',
       deadline: '15/04/2025',
-      estimatedHours: 40
+      estimatedHours: 15
     },
     {
       id: 2,
@@ -39,7 +39,7 @@ const PendingTasks = () => {
       priority: 'Alta',
       category: 'Desarrollo',
       deadline: '30/04/2025',
-      estimatedHours: 25
+      estimatedHours: 10
     },
     {
       id: 3,
@@ -48,7 +48,7 @@ const PendingTasks = () => {
       priority: 'Media',
       category: 'Diseño',
       deadline: '10/05/2025',
-      estimatedHours: 20
+      estimatedHours: 5
     },
     {
       id: 4,
@@ -57,7 +57,7 @@ const PendingTasks = () => {
       priority: 'Media',
       category: 'Contenido',
       deadline: '20/05/2025',
-      estimatedHours: 30
+      estimatedHours: 10
     },
     {
       id: 5,
@@ -66,12 +66,12 @@ const PendingTasks = () => {
       priority: 'Baja',
       category: 'Desarrollo',
       deadline: '15/06/2025',
-      estimatedHours: 35
+      estimatedHours: 1
     },
     {
       id: 6,
-      title: 'Optimizar rendimiento en dispositivos móviles',
-      description: 'Mejorar la carga y renderizado de modelos 3D en dispositivos de gama media y baja.',
+      title: 'Crear el sistema backend para los anuncios',
+      description: 'Diseñar e implementar la base de datos para dar métricas a los anunciantes',
       priority: 'Alta',
       category: 'Infraestructura',
       deadline: '05/04/2025',
@@ -79,12 +79,12 @@ const PendingTasks = () => {
     },
     {
       id: 7,
-      title: 'Diseñar ilustraciones para el Calendario Lunar 2025',
+      title: 'Terminar ilustraciones del calendario lunar',
       description: 'Crear 12 ilustraciones únicas inspiradas en la cosmovisión nahua para cada luna del año.',
       priority: 'Media',
       category: 'Diseño',
       deadline: '25/04/2025',
-      estimatedHours: 60
+      estimatedHours: 7
     }
   ];
 
