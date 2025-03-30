@@ -26,6 +26,13 @@
   }
 }
 
+@theme {
+  --color-main: #FF9A00;
+  --color-secondary: #C4C7FF;
+  --color-background: #1d1d1b;
+}
+
+
 * {
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;

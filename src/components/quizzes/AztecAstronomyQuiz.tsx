@@ -5,18 +5,20 @@ import './quiz.css'
 import { Loader } from '../ui/loader/Loader';
 
 export const AztecAstronomyQuiz = () => {
+  // CONSTS
+  const {data: quiz_data, loading} = useQuiz()
+
+
   // STATES
-  const [questionIndex, setQuestionIndex] = useState(-1)
+  const [questionIndex, setQuestionIndex] = useState(quiz_data?.length)
   const [userAnswers, setUserAnswers] = useState({})
   const [quizCompleted, setQuizCompleted] = useState(false)
   const [isAnswerSubmitted, setIsAnswerSubmitted] = useState(false);
 
-  // CONSTS
-  const {data: quiz_data, loading} = useQuiz()
 
   // FUNCTIONS / COMPONENTS
   function renderSummary() {
-    const correctAnswers = Object.values(userAnswers).filter(answer => answer === 'correct').length
+    const correctAnswers = 5 //Object.values(userAnswers).filter(answer => answer === 'correct').length
     const maxScore =quiz_data?.length ?? 0
     const score = correctAnswers/maxScore
     
@@ -27,10 +29,14 @@ export const AztecAstronomyQuiz = () => {
     }
 
     return (
-      <div className="quiz_sumary">
-        <h3>{correctAnswers}/{maxScore}</h3>
-        <p>{getSummaryMessage(score)}</p>
-        <button style={{marginTop: '15px'}} className='question_option'>Quiero aprender más</button>
+      <div className="bg-background/70 p-5 rounded-2xl">
+        <h2 className='text-main'>
+          Puntaje: {correctAnswers} de {maxScore}
+        </h2>
+        <p className='text-secondary text-lg'>
+          {getSummaryMessage(score)}
+        </p>
+        <button style={{marginTop: '15px'}} className='bg-white/90 text-black'>Quiero aprender más</button>
       </div>
     )
   }
