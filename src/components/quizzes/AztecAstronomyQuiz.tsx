@@ -10,7 +10,7 @@ export const AztecAstronomyQuiz = () => {
 
 
   // STATES
-  const [questionIndex, setQuestionIndex] = useState(quiz_data?.length)
+  const [questionIndex, setQuestionIndex] = useState(-1)
   const [userAnswers, setUserAnswers] = useState({})
   const [quizCompleted, setQuizCompleted] = useState(false)
   const [isAnswerSubmitted, setIsAnswerSubmitted] = useState(false);
@@ -18,7 +18,7 @@ export const AztecAstronomyQuiz = () => {
 
   // FUNCTIONS / COMPONENTS
   function renderSummary() {
-    const correctAnswers = 5 //Object.values(userAnswers).filter(answer => answer === 'correct').length
+    const correctAnswers = Object.values(userAnswers).filter(answer => answer === 'correct').length
     const maxScore =quiz_data?.length ?? 0
     const score = correctAnswers/maxScore
     
