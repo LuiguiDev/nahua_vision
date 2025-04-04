@@ -8,9 +8,8 @@ export const AztecAstronomyQuiz = () => {
   // CONSTS
   const {data: quiz_data, loading} = useQuiz()
 
-
   // STATES
-  const [questionIndex, setQuestionIndex] = useState(-1)
+  const [questionIndex, setQuestionIndex] = useState(quiz_data?.length)  // (-1)
   const [userAnswers, setUserAnswers] = useState({})
   const [quizCompleted, setQuizCompleted] = useState(false)
   const [isAnswerSubmitted, setIsAnswerSubmitted] = useState(false);
@@ -29,14 +28,14 @@ export const AztecAstronomyQuiz = () => {
     }
 
     return (
-      <div className="bg-background/70 p-5 rounded-2xl">
+      <div className="bg-background/70 p-5 rounded-2xl border-2 border-secondary">
         <h2 className='text-main'>
-          Puntaje: {correctAnswers} de {maxScore}
+          Puntaje: {5} de {maxScore}
         </h2>
         <p className='text-secondary text-lg'>
           {getSummaryMessage(score)}
         </p>
-        <button style={{marginTop: '15px'}} className='bg-white/90 text-black'>Quiero aprender más</button>
+        <button style={{marginTop: '15px'}} className='bg-secondary text-black'>Quiero aprender más</button>
       </div>
     )
   }

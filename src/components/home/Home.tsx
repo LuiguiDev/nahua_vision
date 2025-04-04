@@ -62,12 +62,13 @@ const FEATURES = [
   }
 ]
 
-
 const ShortPitch = () => {
   return (
-    <div className="header_text">
-      <p className="text-white"><strong>¿Qué es <span translate="no">nahua vision?</span></strong></p>
-      <p className="text-white">Una guía para explorar el universo a través de los ojos de los antiguos mexicanos</p>
+    <div className="w-full md:grid grid-cols-2">
+      <div className="w-full">
+        <p className="text-white"><strong>¿Qué es <span translate="no">nahua vision?</span></strong></p>
+        <p className="text-white">Una guía para explorar el universo a través de los ojos de los antiguos mexicanos</p>
+      </div>
       <LuisCard />
     </div>
   )
@@ -81,7 +82,7 @@ interface FeaturesSelectorProps {
 
 const FeaturesSelector: React.FC<FeaturesSelectorProps> = ({ data, selectedFeature, manageSelectFeature }) => {
   return(
-    <div className="features_mini">
+    <div className="features_mini lg:flex ">
       <div className="images">
         {
           data.map(f => (
@@ -149,9 +150,10 @@ const Home = () => {
   return (
     <main className="page_container">
       <ShortPitch />
-      <Featured {...content} />
-
-      <FeaturesSelector data={FEATURES} selectedFeature={selectedFeature} manageSelectFeature={manageSelectFeature}/>
+      <div className="flex flex-col  lg:grid grid-cols-[1fr_200px] gap-5" >
+        <Featured {...content} />
+        <FeaturesSelector data={FEATURES} selectedFeature={selectedFeature} manageSelectFeature={manageSelectFeature}/>
+      </div>
     </main>
   )
 }

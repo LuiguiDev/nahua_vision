@@ -34,7 +34,7 @@ export const Footer: React.FC<FooterProps> = ({extended}) => {
         </div>
       }
 
-      <img src="https://i.ibb.co/zscR2BK/grecas-extended.jpg" alt="Mitla frets" className="frets"/>
+      <img src="https://i.ibb.co/zscR2BK/grecas-extended.jpg" alt="Mitla frets" className="frets lg:hidden"/>
     </footer>
     
   )
