@@ -29,7 +29,7 @@ const PendingTasks = () => {
       description: 'Hacer un modelo 3D del templo mayor y desarrollar la app-web de realidad virtual con webGL con el fin de que los usuarios comprendan de las ruinas del templo mayor',
       priority: 'Alta',
       category: 'Desarrollo',
-      deadline: '15/04/2025',
+      deadline: '20/04/2025',
       estimatedHours: 15
     },
     {

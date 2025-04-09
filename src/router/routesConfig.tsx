@@ -8,9 +8,10 @@ import MoonCalendar from "../components/pages/moon calendar/MoonCalendar";
 import Tonalli from "../components/pages/tonalli/Tonalli";
 import MDXBlogPost from "../components/blog/MDXBlogPost";
 import MDXBlog from "../components/blog/MDXBlog";
-import Nahuatl from "../components/nahuatl/Nahuatl";
+import Nahuatl from "../components/aprende_nahuatl/AprendeNahuatl.tsx";
 import About from "../components/pages/about/About";
 import Gallery from "../components/pages/gallery/Gallery";
+import AprendeNahuatl from "../components/aprende_nahuatl/AprendeNahuatl.tsx";
 
 
 interface RouteType {
@@ -58,7 +59,7 @@ const routesConfig: RouteType[] = [
   {
     title: 'Aprende nahuatl',
     path: '/nahuatl',
-    element: <Nahuatl />
+    element: <AprendeNahuatl />
   },
   {
     title: 'Fondos de pantalla',
