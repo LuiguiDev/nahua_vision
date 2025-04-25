@@ -65,7 +65,7 @@ const FEATURES = [
 const ShortPitch = () => {
   return (
     <div className="w-full md:grid grid-cols-2">
-      <div className="w-full">
+      <div className="w-full mb-4">
         <p className="text-white"><strong>¿Qué es <span translate="no">nahua vision?</span></strong></p>
         <p className="text-white">Una guía para explorar el universo a través de los ojos de los antiguos mexicanos</p>
       </div>

@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 //styles
 import './featured_card.css'
 import { DEVELOPMENT_ROUTES, SUPPORTED_ROUTES } from "../../../constants/suported_routes";
+import ComingSoonBtn from "../../ui/buttons/ComingSoonBtn";
+import FeatureButton from "../../ui/buttons/FeatureBtn";
 
 
 // COMPONENTS
@@ -35,13 +37,11 @@ const FeatureCard: React.FC<featureCardProps> = (
         <h3>{feature.title}</h3>
         <p>{feature.description}</p>
         <div className="feature_btns">
-          <button className={`feature_btn ${onDevelopment ? 'btn_disabled' : ''}`} disabled={onDevelopment}>
-            {
-              onDevelopment
-              ? <ProximamenteBtn />
-              : <Link to={feature.path}>{feature.button}</Link>
-            }
-          </button>
+          {
+            onDevelopment
+            ? <ComingSoonBtn />
+            : <FeatureButton feature={feature} />
+          }
         </div>
       </section>
     </article>

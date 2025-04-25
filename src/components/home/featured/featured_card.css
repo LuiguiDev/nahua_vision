@@ -58,16 +58,18 @@
   background: rgba(183, 183, 183, 0.743);
 }
 
-.notification {
-  font-size: .9rem;
-}
-
 a {
   text-decoration: none;
   color: inherit;
 }
 
-button i {
+/* button i {
   font-size: 20px;
   color: #141414;
 }
+ */
+.notification {
+  font-size: .9rem;
+}
+
+
