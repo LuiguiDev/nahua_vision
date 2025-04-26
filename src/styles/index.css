@@ -59,7 +59,6 @@
 
 html{
   width: 100vw;
-  min-height: 100vh;
   overflow-x: hidden;
 }
 
@@ -95,7 +94,6 @@ button {
 .logo {
   width: 35px;
 }
-
 .page_container {
   min-height: calc(100vh - 103px);
   padding: 0 25px;

@@ -51,12 +51,8 @@ function Router () {
               <Route path={path} element={element} key={path}/>
             ))
           }
-
           <Route path="/ad" element={<Ad placement={placement} />} />
-
           <Route path={DEVELOPMENT_ROUTES.GALLERY} element={<Gallery />} />
-
-
           <Route path="/moon-calendar/:moonId" element={<MoonFullPage />}/>
         </Routes>
       {!isAppRoute && <Footer extended={false}/>}

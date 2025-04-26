@@ -83,7 +83,6 @@ function App () {
 
       <div 
         className="app"
-        style={{height: `calc(var(--vh, 1vh) * 100)`}}
       >
         <AppHeader />
         <Suspense fallback={<Loader/>}>

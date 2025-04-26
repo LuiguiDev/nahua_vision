@@ -1,5 +1,7 @@
 .app {
   overflow: hidden;  
+  width: 100%;
+  height: 100%;
 }
 .display {
   position: fixed;
@@ -28,7 +30,7 @@ span {
 
 .loader {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: rgb(26, 49, 133);
   font-size: 4rem;
   color: white;
