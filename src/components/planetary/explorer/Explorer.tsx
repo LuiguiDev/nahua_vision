@@ -1,9 +1,11 @@
 import './explorer.css'
 import { useEffect, useRef, useState } from "react"
 import { useAstros } from "../../../hooks/useAstros"
-import { UUIDtype, astro, astros } from "../../../types/types"
+import { UUIDtype, astro, astros } from "./types"
 import React from "react"
 import { Line } from "@react-three/drei"
+import ExploreCard from './ExplorerCard'
+import BottomSheetAstro from './BottomSheetAstro'
 
 // EXPERIMENTS
 const ModelElement = () => {
@@ -17,12 +19,6 @@ interface HandlerProps {
   manageCloseExplorer: () => void
   explorer: boolean
 }
-interface CardProps {
-  astro: astro
-  manageSetLookAt: (position: [number, number, number]) => void
-  setSelectedId: (id: UUIDtype | undefined) => void
-}
-
 
 // COMPONENTS
 const ExplorerHanlder: React.FC<HandlerProps> = ({manageCloseExplorer, explorer}) => {
@@ -39,7 +35,7 @@ const ExplorerHanlder: React.FC<HandlerProps> = ({manageCloseExplorer, explorer}
   )
 }
 
-const ExploreCard: React.FC<CardProps> = ({ astro, manageSetLookAt, setSelectedId }) => {
+const ExploreCardPrevVersion: React.FC<CardProps> = ({ astro, manageSetLookAt, setSelectedId }) => {
   // STATES
   const [extended, setExtended] = useState(false)
   const { nameNa, nameEs, description, id, position, images } = astro
@@ -118,6 +114,14 @@ export const Explorer: React.FC<ExplorerProps> = ({ manageSetLookAt }) => {
   const id = crypto.randomUUID()
   const { data } = useAstros()
   const [selectedId, setSelectedId] = useState<UUIDtype | undefined>(undefined)
+  const [showBottomSheet, setShowBottomSheet] = useState(false);
+
+  function manageShowBottomSheet() {
+    setShowBottomSheet(true)
+  }
+  function closeBottomSheet() {
+    setShowBottomSheet(false)
+  }
 
 
   // FUNCITONS
@@ -137,6 +141,8 @@ export const Explorer: React.FC<ExplorerProps> = ({ manageSetLookAt }) => {
   }  
 
   const astros = astrosFiltered(data)
+  const selectedAstro = astros.find(astro => astro.id === selectedId) || astros[0]
+
 
   useEffect(() => {
 /*     if(exploreRef.current) {
@@ -168,11 +174,17 @@ export const Explorer: React.FC<ExplorerProps> = ({ manageSetLookAt }) => {
                 astro={astro}
                 manageSetLookAt={manageSetLookAt}
                 setSelectedId={setSelectedId}
+                setShowBottomSheet={manageShowBottomSheet}
               />
             ))
           }
         </div>
       }
+      <BottomSheetAstro
+        astro={selectedAstro}
+        isOpen={showBottomSheet}
+        onClose={closeBottomSheet}
+      />
     </div>
   )
 }
