@@ -64,7 +64,7 @@ function App () {
     setTouchStart({x: newX, y: newY})
   }
   
-  document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+/*   document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`); */
 
   function manageSetLookAt(position: [number, number, number]) {
     setLookAt(position)

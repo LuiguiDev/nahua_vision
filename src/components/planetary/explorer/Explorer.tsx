@@ -166,7 +166,7 @@ export const Explorer: React.FC<ExplorerProps> = ({ manageSetLookAt }) => {
       <ExplorerHanlder explorer={explorer} manageCloseExplorer={manageCloseExplorer} />
       {
         explorer && 
-        <div className={className} ref={exploreRef}>
+        <div className={'explore_list'} ref={exploreRef}>
           {
             astros.map(astro => (
               <ExploreCard
