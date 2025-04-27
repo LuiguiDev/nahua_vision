@@ -13,13 +13,11 @@ const ExploreCard: React.FC<CardProps> = ({ astro, manageSetLookAt, setSelectedI
   const cardRef = useRef(null);
 
   const scope:[number, number, number] = [...position]
-  // by reducing scope[1] (y) by 15 the astro is not covered by extended info
-  scope[1] = scope[1] - 15
 
   function handleClick() {
     manageSetLookAt(scope);
     setSelectedId(id);
-    setShowBottomSheet(true);
+    setShowBottomSheet(true);    
   }
 
   useEffect(() => {

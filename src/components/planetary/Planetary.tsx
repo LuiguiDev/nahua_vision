@@ -34,10 +34,10 @@ const Seo = () => {
 
 function App () {
   const [touchStart, setTouchStart] = useState({x:0, y:0})
-  const [movement, setMovement] = useState({x:0, y:0})
   const [loading, setLoading] = useState(true)
   const [debuggin, setDebugging] = useState(true)
   const cameraRef = useRef(null)
+  const [movement, setMovement] = useState({x:0, y:0})
   const [lookAt, setLookAt] = useState([0, 0, 0])
   const { data } = useAstros()
   
@@ -68,6 +68,7 @@ function App () {
 
   function manageSetLookAt(position: [number, number, number]) {
     setLookAt(position)
+    // reiniciar el movimiento de la camara para sincrinizar con lookAt y evitar saltos
   }
 
 

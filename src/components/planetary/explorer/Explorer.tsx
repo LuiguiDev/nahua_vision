@@ -7,7 +7,7 @@ import { Line } from "@react-three/drei"
 import ExploreCard from './ExplorerCard'
 import BottomSheetAstro from './BottomSheetAstro'
 
-// EXPERIMENTS
+// experimental
 const ModelElement = () => {
   return (
     <Line points={[2, 2, 2]}/>
@@ -21,6 +21,7 @@ interface HandlerProps {
 }
 
 // COMPONENTS
+// close/show explorer button
 const ExplorerHanlder: React.FC<HandlerProps> = ({manageCloseExplorer, explorer}) => {
   const className = explorer ? 'top' : 'bottom'
   const text = explorer ? 'Close explorer' : 'Show explorer'
@@ -35,6 +36,7 @@ const ExplorerHanlder: React.FC<HandlerProps> = ({manageCloseExplorer, explorer}
   )
 }
 
+// this component have been moved to ExplorerCard file
 const ExploreCardPrevVersion: React.FC<CardProps> = ({ astro, manageSetLookAt, setSelectedId }) => {
   // STATES
   const [extended, setExtended] = useState(false)
@@ -140,10 +142,11 @@ export const Explorer: React.FC<ExplorerProps> = ({ manageSetLookAt }) => {
     setExplorer(!explorer)
   }  
 
-  const astros = astrosFiltered(data)
+  const astros:astros = data
   const selectedAstro = astros.find(astro => astro.id === selectedId) || astros[0]
 
 
+  //useless
   useEffect(() => {
 /*     if(exploreRef.current) {
       exploreRef.current.addEventListener('scroll', (e) => manageScroll(e))
