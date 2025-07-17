@@ -22,22 +22,27 @@ interface WordOfTheDay {
 
 const WordOfTheDay: React.FC<WordType> = (word) => {
   return(
-    <section className="bg-[#c4c7ff3b] p-10 flex flex-col gap-6">
-      <div className="flex justify-between">
-        <p className="text-[#C4C7FF] font-bold">Palabra del día</p>
+    <section className="bg-[#494b5d57] p-10 flex flex-col gap-6">
+      <div className="flex justify-between align-middle">
+        <p className="text-[#C4C7FF] text-xl">Palabra del día</p>
+        <div className="w-8">
+          <img src="../public/img/favicon.png" />
+        </div>
         
-        <button onClick={() => shareWord(word)}>    
-          <i className="fa-solid fa-arrow-up-from-bracket" style={{color: "#FF9A00"}}></i>
-        </button>
-      </div>
-      <h2 className="text-4xl text-[#C4C7FF] font-extrabold">{word.nahuatl}</h2>
-      <p className="text-[#C4C7FF] font-bold">Significa "{word.spanish}"</p>
-      <p className="text-sm text-secondary">
+{/*         <div onClick={() => shareWord(word)}>    
+          <i className="fa-solid fa-arrow-up-from-bracket text-xl" style={{color: "#FF9A00"}}></i>
+        </div>
+ */}
+
+    </div>
+      <h2 className="text-3xl text-[#C4C7FF] font-extrabold">{word.nahuatl}</h2>
+      <p className="text-[#C4C7FF] text-xl">Significa {word.spanish}</p>
+{/*       <p className="text-sm text-secondary">
         <Link to={`/nahuatl/${word.slug}`}>
           Leer artículo
         </Link>
       </p>
-    </section>
+ */}    </section>
   )
 }
 
@@ -111,7 +116,8 @@ const AprendeNahuatl = () => {
 
   return (
     <main className="page_container flex flex-col gap-8">
-      <WordOfTheDay image="" nahuatl='CIHUATETEO' spanish="mujeres divinas" slug=""/>
+      {/* <WordOfTheDay image="" nahuatl='CIHUATETEO' spanish="mujeres divinas" slug=""/> */}
+      <WordOfTheDay image="" nahuatl='In xochitl, in cuicatl' spanish='“poesía” ó “el canto es como una flor”' slug=""/>
       <Nature />
       
       <button className="bg-white/80 text-black p-3 rounded-md">
